@@ -1,0 +1,76 @@
+START TRANSACTION;
+insert into locations (location_name, address, city, state, zip) VALUES ("loc1", "101 main", "Clemson", "SC", 29631);
+insert into locations (location_name, address, city, state, zip) VALUES ("loc2", "102 main", "Clemson", "SC", 29631);
+insert into locations (location_name, address, city, state, zip) VALUES ("loc3", "103 main", "Clemson", "SC", 29631);
+insert into locations (location_name, address, city, state, zip) VALUES ("loc4", "104 main", "Clemson", "SC", 29631);
+insert into locations (location_name, address, city, state, zip) VALUES ("loc5", "105 main", "Clemson", "SC", 29631);
+insert into locations (location_name, address, city, state, zip) VALUES ("loc6", "106 main", "Clemson", "SC", 29631);
+insert into locations (location_name, address, city, state, zip) VALUES ("loc7", "107 main", "Clemson", "SC", 29631);
+insert into locations (location_name, address, city, state, zip) VALUES ("loc8", "108 main", "Clemson", "SC", 29631);
+insert into locations (location_name, address, city, state, zip) VALUES ("loc9", "109 main", "Clemson", "SC", 29631);
+insert into locations (location_name, address, city, state, zip) VALUES ("loc10", "1010 main", "Clemson", "SC", 29631);
+insert into locations (location_name, address, city, state, zip) VALUES ("loc11", "1011 main", "Clemson", "SC", 29631);
+insert into locations (location_name, address, city, state, zip) VALUES ("loc12", "1012 main", "Clemson", "SC", 29631);
+insert into locations (location_name, address, city, state, zip) VALUES ("loc13", "1013 main", "Clemson", "SC", 29631);
+insert into locations (location_name, address, city, state, zip) VALUES ("loc14", "1014 main", "Clemson", "SC", 29631);
+COMMIT;
+
+START TRANSACTION;
+insert into customers (customer_name, location_id, contact) VALUES ("cust1", 1, "contact1");
+insert into customers (customer_name, location_id, contact) VALUES ("cust2", 2, "contact2");
+insert into customers (customer_name, location_id, contact) VALUES ("cust3", 5, "contact3");
+insert into customers (customer_name, location_id, contact) VALUES ("cust4", 2, "contact4");
+insert into customers (customer_name, location_id, contact) VALUES ("cust5", 8, "contact5");
+insert into customers (customer_name, location_id, contact) VALUES ("cust6", 10, "contact6");
+insert into customers (customer_name, location_id, contact) VALUES ("cust7", 14, "contact7");
+insert into customers (customer_name, location_id, contact) VALUES ("cust8", 7, "contact8");
+COMMIT;
+
+START TRANSACTION;
+insert into projects (project_name, customer_id, project_type, location_id) VALUES ("proj1", 1, "building", 4);
+insert into projects (project_name, customer_id, project_type, location_id) VALUES ("proj2", 2, "building", 3);
+insert into projects (project_name, customer_id, project_type, location_id) VALUES ("proj3", 6, "tunnel", 11);
+insert into projects (project_name, customer_id, project_type, location_id) VALUES ("proj4", 3, "remodel", 9);
+insert into projects (project_name, customer_id, project_type, location_id) VALUES ("proj5", null, "warehouse", 13);
+COMMIT;
+
+START TRANSACTION;
+insert into departments (department_name, dept_manager_id) VALUES ("warehouse", null);
+insert into departments (department_name, dept_manager_id) VALUES ("sales", null);
+insert into departments (department_name, dept_manager_id) VALUES ("machine operators", null);
+insert into departments (department_name, dept_manager_id) VALUES ("woodwork", null);
+insert into departments (department_name, dept_manager_id) VALUES ("metalwork", null);
+insert into departments (department_name, dept_manager_id) VALUES ("finance", null);
+COMMIT;
+
+START TRANSACTION;
+insert into employees (user_name, first_name, last_name, admin_rights, password, department_id, project_id) VALUES ("user1", "f name1", "l name1", True, "pass1", 1, 5);
+insert into employees (user_name, first_name, last_name, admin_rights, password, department_id, project_id) VALUES ("user2", "f name2", "l name2", False, "pass2", 4, 1);
+insert into employees (user_name, first_name, last_name, admin_rights, password, department_id, project_id) VALUES ("user3", "f name3", "l name3", False, "pass3", 5, 1);
+insert into employees (user_name, first_name, last_name, admin_rights, password, department_id, project_id) VALUES ("user4", "f name4", "l name4", False, "pass4", 4, 2);
+insert into employees (user_name, first_name, last_name, admin_rights, password, department_id, project_id) VALUES ("user5", "f name5", "l name5", False, "pass5", 3, 3);
+insert into employees (user_name, first_name, last_name, admin_rights, password, department_id, project_id) VALUES ("user6", "f name6", "l name6", True, "pass6", 3, 3);
+insert into employees (user_name, first_name, last_name, admin_rights, password, department_id, project_id) VALUES ("user7", "f name7", "l name7", False, "pass7", 1, 5);
+insert into employees (user_name, first_name, last_name, admin_rights, password, department_id, project_id) VALUES ("user8", "f name8", "l name8", False, "pass8", 6, null);
+insert into employees (user_name, first_name, last_name, admin_rights, password, department_id, project_id) VALUES ("user9", "f name9", "l name9", False, "pass9", 6, null);
+insert into employees (user_name, first_name, last_name, admin_rights, password, department_id, project_id) VALUES ("user10", "f name10", "l name10", False, "pass10", 6, null);
+insert into employees (user_name, first_name, last_name, admin_rights, password, department_id, project_id) VALUES ("user11", "f name11", "l name11", True, "pass11", 4, 4);
+insert into employees (user_name, first_name, last_name, admin_rights, password, department_id, project_id) VALUES ("user12", "f name12", "l name12", False, "pass12", 4, 4);
+insert into employees (user_name, first_name, last_name, admin_rights, password, department_id, project_id) VALUES ("user13", "f name13", "l name13", True, "pass13", 3, 1);
+COMMIT;
+
+START TRANSACTION;
+insert into suppliers (supplier_name, location_id, contact_name, product_type, phone_number) VALUES ("supplier1", 2, "john1", "boards", "1234567");
+insert into suppliers (supplier_name, location_id, contact_name, product_type, phone_number) VALUES ("supplier2", 13, "john2", "nails", "1234567");
+insert into suppliers (supplier_name, location_id, contact_name, product_type, phone_number) VALUES ("supplier3", 1, "john3", "flooring", "1234567");
+insert into suppliers (supplier_name, location_id, contact_name, product_type, phone_number) VALUES ("supplier4", 6, "john4", "tile", "1234567");
+COMMIT;
+
+START TRANSACTION;
+insert into inventory (inventory_type, category, supplier_id, project_id, location_id, number_of) VALUES ("inventory1", "cat1", 1, null, 13, 20);
+insert into inventory (inventory_type, category, supplier_id, project_id, location_id, number_of) VALUES ("inventory2", "cat2", 2, null, 13, 20);
+insert into inventory (inventory_type, category, supplier_id, project_id, location_id, number_of) VALUES ("inventory3", "cat3", 3, null, 13, 20);
+insert into inventory (inventory_type, category, supplier_id, project_id, location_id, number_of) VALUES ("inventory4", "cat4", 4, null, 13, 20);
+insert into inventory (inventory_type, category, supplier_id, project_id, location_id, number_of) VALUES ("inventory5", "cat5", 3, null, 13, 20);
+insert into inventory (inventory_type, category, supplier_id, project_id, location_id, number_of) VALUES ("inventory6", "cat6", 2, null, 13, 20);
+COMMIT;
