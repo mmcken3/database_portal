@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <style>
+        #inventory {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        #inventory td,
+        #inventory th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        
+        #inventory tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        #inventory tr:hover {
+            background-color: #ddd;
+        }
+        
+        #inventory th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #dddddd;
+        }
+        
+        li {
+            float: left;
+        }
+        
+        li a {
+            display: block;
+            padding: 8px;
+        }
+    </style>
+    </head>
+
+    <body>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+        <h1>Inventory</h1>
+
+        <input type="text" id="myInput" placeholder="Search for inventory.." title="Search">
+
+        <table id="inventory">
+            <tr>
+                <th>Inventory ID#</th>
+                <th>Item Type</th>
+                <th>Category</th>
+                <th>Supplier ID#</th>
+                <th>Location ID#</th>
+                <th>Number of Item</th>
+                <th>View Location</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Item 1</td>
+                <td>None</td>
+                <td>Wood</td>
+                <td>1</td>
+                <td>10</td>
+                <td><a href="inventory_view.html">edit</a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Item 2</td>
+                <td>None</td>
+                <td>Wood</td>
+                <td>2</td>
+                <td>3</td>
+                <td><a href="inventory_view.html">edit</a></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Item 3</td>
+                <td>None</td>
+                <td>Wood</td>
+                <td>3</td>
+                <td>12</td>
+                <td><a href="inventory_view.html">edit</a></td>
+            </tr>
+
+        </table>
+    </body>
+
+</html>

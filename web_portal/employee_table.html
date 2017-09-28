@@ -3,44 +3,64 @@
 
 <body>
     <style>
-        #customers {
+        #employee {
             font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
             border-collapse: collapse;
             width: 100%;
         }
         
-        #customers td,
-        #customers th {
+        #employee td,
+        #employee th {
             border: 1px solid #ddd;
             padding: 8px;
         }
         
-        #customers tr:nth-child(even) {
+        #employee tr:nth-child(even) {
             background-color: #f2f2f2;
         }
         
-        #customers tr:hover {
+        #employee tr:hover {
             background-color: #ddd;
         }
         
-        #customers th {
+        #employee th {
             padding-top: 12px;
             padding-bottom: 12px;
             text-align: left;
             background-color: #4CAF50;
             color: white;
         }
+        
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #dddddd;
+        }
+        
+        li {
+            float: left;
+        }
+        
+        li a {
+            display: block;
+            padding: 8px;
+        }
     </style>
     </head>
 
     <body>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+        <h1>Employees</h1>
 
-        <input type="text" id="myInput" placeholder="Search for names.." title="Type in a name">
-        <input type="text" id="myInput" placeholder="Search for names.." title="Type in a name">
-        <input type="text" id="myInput" placeholder="Search for names.." title="Type in a name">
-        <input type="text" id="myInput" placeholder="Search for names.." title="Type in a name">
+        <input type="text" id="myInput" placeholder="Search for employee.." title="Search">
 
-        <table id="customers">
+        <table id="employee">
             <tr>
                 <th>User ID#</th>
                 <th>User Name</th>

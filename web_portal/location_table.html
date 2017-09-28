@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <style>
+        #locations {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        #locations td,
+        #locations th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        
+        #locations tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        #locations tr:hover {
+            background-color: #ddd;
+        }
+        
+        #locations th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #dddddd;
+        }
+        
+        li {
+            float: left;
+        }
+        
+        li a {
+            display: block;
+            padding: 8px;
+        }
+    </style>
+    </head>
+
+    <body>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+        <h1>Locations</h1>
+
+        <input type="text" id="myInput" placeholder="Search for locations.." title="Search">
+
+        <table id="locations">
+            <tr>
+                <th>Location ID#</th>
+                <th>Location Name</th>
+                <th>Location Type</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip</th>
+                <th>View Location</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Location 1</td>
+                <td>None</td>
+                <td>101 Main</td>
+                <td>Clemson</td>
+                <td>SC</td>
+                <td>29492</td>
+                <td><a href="location_view.html">edit</a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Location 2</td>
+                <td>None</td>
+                <td>102 Main</td>
+                <td>Clemson</td>
+                <td>SC</td>
+                <td>29492</td>
+                <td><a href="location_view.html">edit</a></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Location 3</td>
+                <td>None</td>
+                <td>103 Main</td>
+                <td>Clemson</td>
+                <td>SC</td>
+                <td>29492</td>
+                <td><a href="location_view.html">edit</a></td>
+            </tr>
+
+        </table>
+    </body>
+
+</html>
