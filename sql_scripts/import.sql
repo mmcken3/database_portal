@@ -75,7 +75,8 @@ CREATE TABLE IF NOT EXISTS projects (
 CREATE TABLE IF NOT EXISTS customers (
 	customer_id INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
 	customer_name VARCHAR(30),
-	contact VARCHAR(30),
+	contact_name VARCHAR(30),
+	contact_number VARCHAR(30),
 	location_id INT
 );
 

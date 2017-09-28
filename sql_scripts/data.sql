@@ -16,14 +16,14 @@ insert into locations (location_name, loc_address, city, loc_state, zip) VALUES 
 COMMIT;
 
 START TRANSACTION;
-insert into customers (customer_name, location_id, contact) VALUES ("cust1", 1, "contact1");
-insert into customers (customer_name, location_id, contact) VALUES ("cust2", 2, "contact2");
-insert into customers (customer_name, location_id, contact) VALUES ("cust3", 5, "contact3");
-insert into customers (customer_name, location_id, contact) VALUES ("cust4", 2, "contact4");
-insert into customers (customer_name, location_id, contact) VALUES ("cust5", 8, "contact5");
-insert into customers (customer_name, location_id, contact) VALUES ("cust6", 10, "contact6");
-insert into customers (customer_name, location_id, contact) VALUES ("cust7", 14, "contact7");
-insert into customers (customer_name, location_id, contact) VALUES ("cust8", 7, "contact8");
+insert into customers (customer_name, location_id, contact_name, contact_number) VALUES ("cust1", 1, "contact_name1", "no number");
+insert into customers (customer_name, location_id, contact_name, contact_number) VALUES ("cust2", 2, "contact_name2", "no number");
+insert into customers (customer_name, location_id, contact_name, contact_number) VALUES ("cust3", 5, "contact_name3", "no number");
+insert into customers (customer_name, location_id, contact_name, contact_number) VALUES ("cust4", 2, "contact_name4", "no number");
+insert into customers (customer_name, location_id, contact_name, contact_number) VALUES ("cust5", 8, "contact_name5", "no number");
+insert into customers (customer_name, location_id, contact_name, contact_number) VALUES ("cust6", 10, "contact_name6", "no number");
+insert into customers (customer_name, location_id, contact_name, contact_number) VALUES ("cust7", 14, "contact_name7", "no number");
+insert into customers (customer_name, location_id, contact_name, contact_number) VALUES ("cust8", 7, "contact_name8", "no number");
 COMMIT;
 
 START TRANSACTION;
