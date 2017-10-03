@@ -12,6 +12,8 @@ CREATE TABLE IF NOT EXISTS employees (
 	admin_rights BOOLEAN NOT NULL, 
 	user_pass VARCHAR(25), 
 	user_id INT NOT NULL UNIQUE AUTO_INCREMENT,
+	phone VARCHAR(25),
+	user_address VARCHAR(25),
 	project_id INT,
 	department_id INT
 );
