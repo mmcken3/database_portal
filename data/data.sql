@@ -44,19 +44,19 @@ insert into departments (department_name, dept_manager_id) VALUES ("finance", nu
 COMMIT;
 
 START TRANSACTION;
-insert into employees (user_name, first_name, last_name, admin_rights, user_pass, department_id, project_id) VALUES ("user1", "f name1", "l name1", True, "pass1", 1, 5);
-insert into employees (user_name, first_name, last_name, admin_rights, user_pass, department_id, project_id) VALUES ("user2", "f name2", "l name2", False, "pass2", 4, 1);
-insert into employees (user_name, first_name, last_name, admin_rights, user_pass, department_id, project_id) VALUES ("user3", "f name3", "l name3", False, "pass3", 5, 1);
-insert into employees (user_name, first_name, last_name, admin_rights, user_pass, department_id, project_id) VALUES ("user4", "f name4", "l name4", False, "pass4", 4, 2);
-insert into employees (user_name, first_name, last_name, admin_rights, user_pass, department_id, project_id) VALUES ("user5", "f name5", "l name5", False, "pass5", 3, 3);
-insert into employees (user_name, first_name, last_name, admin_rights, user_pass, department_id, project_id) VALUES ("user6", "f name6", "l name6", True, "pass6", 3, 3);
-insert into employees (user_name, first_name, last_name, admin_rights, user_pass, department_id, project_id) VALUES ("user7", "f name7", "l name7", False, "pass7", 1, 5);
-insert into employees (user_name, first_name, last_name, admin_rights, user_pass, department_id, project_id) VALUES ("user8", "f name8", "l name8", False, "pass8", 6, null);
-insert into employees (user_name, first_name, last_name, admin_rights, user_pass, department_id, project_id) VALUES ("user9", "f name9", "l name9", False, "pass9", 6, null);
-insert into employees (user_name, first_name, last_name, admin_rights, user_pass, department_id, project_id) VALUES ("user10", "f name10", "l name10", False, "pass10", 6, null);
-insert into employees (user_name, first_name, last_name, admin_rights, user_pass, department_id, project_id) VALUES ("user11", "f name11", "l name11", True, "pass11", 4, 4);
-insert into employees (user_name, first_name, last_name, admin_rights, user_pass, department_id, project_id) VALUES ("user12", "f name12", "l name12", False, "pass12", 4, 4);
-insert into employees (user_name, first_name, last_name, admin_rights, user_pass, department_id, project_id) VALUES ("user13", "f name13", "l name13", True, "pass13", 3, 1);
+insert into employees (user_name, first_name, last_name, admin_rights, user_pass, phone, user_address, department_id, project_id) VALUES ("user1", "f name1", "l name1", True, "pass1", "none", "none", 1, 5);
+insert into employees (user_name, first_name, last_name, admin_rights, user_pass, phone, user_address, department_id, project_id) VALUES ("user2", "f name2", "l name2", False, "pass2", "none", "none", 4, 1);
+insert into employees (user_name, first_name, last_name, admin_rights, user_pass, phone, user_address, department_id, project_id) VALUES ("user3", "f name3", "l name3", False, "pass3", "none", "none", 5, 1);
+insert into employees (user_name, first_name, last_name, admin_rights, user_pass, phone, user_address, department_id, project_id) VALUES ("user4", "f name4", "l name4", False, "pass4", "none", "none", 4, 2);
+insert into employees (user_name, first_name, last_name, admin_rights, user_pass, phone, user_address, department_id, project_id) VALUES ("user5", "f name5", "l name5", False, "pass5", "none", "none", 3, 3);
+insert into employees (user_name, first_name, last_name, admin_rights, user_pass, phone, user_address, department_id, project_id) VALUES ("user6", "f name6", "l name6", True, "pass6", "none", "none", 3, 3);
+insert into employees (user_name, first_name, last_name, admin_rights, user_pass, phone, user_address, department_id, project_id) VALUES ("user7", "f name7", "l name7", False, "pass7", "none", "none", 1, 5);
+insert into employees (user_name, first_name, last_name, admin_rights, user_pass, phone, user_address, department_id, project_id) VALUES ("user8", "f name8", "l name8", False, "pass8", "none", "none", 6, null);
+insert into employees (user_name, first_name, last_name, admin_rights, user_pass, phone, user_address, department_id, project_id) VALUES ("user9", "f name9", "l name9", False, "pass9", "none", "none", 6, null);
+insert into employees (user_name, first_name, last_name, admin_rights, user_pass, phone, user_address, department_id, project_id) VALUES ("user10", "f name10", "l name10", False, "pass10", "none", "none", 6, null);
+insert into employees (user_name, first_name, last_name, admin_rights, user_pass, phone, user_address, department_id, project_id) VALUES ("user11", "f name11", "l name11", True, "pass11", "none", "none", 4, 4);
+insert into employees (user_name, first_name, last_name, admin_rights, user_pass, phone, user_address, department_id, project_id) VALUES ("user12", "f name12", "l name12", False, "pass12", "none", "none", 4, 4);
+insert into employees (user_name, first_name, last_name, admin_rights, user_pass, phone, user_address, department_id, project_id) VALUES ("user13", "f name13", "l name13", True, "pass13", "none", "none", 3, 1);
 COMMIT;
 
 START TRANSACTION;
