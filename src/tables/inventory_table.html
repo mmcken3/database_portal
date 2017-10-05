@@ -3,27 +3,27 @@
 
 <body>
     <style>
-        #locations {
+        #inventory {
             font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
             border-collapse: collapse;
             width: 100%;
         }
         
-        #locations td,
-        #locations th {
+        #inventory td,
+        #inventory th {
             border: 1px solid #ddd;
             padding: 8px;
         }
         
-        #locations tr:nth-child(even) {
+        #inventory tr:nth-child(even) {
             background-color: #f2f2f2;
         }
         
-        #locations tr:hover {
+        #inventory tr:hover {
             background-color: #ddd;
         }
         
-        #locations th {
+        #inventory th {
             padding-top: 12px;
             padding-bottom: 12px;
             text-align: left;
@@ -52,54 +52,50 @@
 
     <body>
         <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="profile.html">Profile</a></li>
+            <li><a href="../home.html">Home</a></li>
+            <li><a href="../profile.html">Profile</a></li>
             <li><a href="#about">About</a></li>
         </ul>
-        <h1>Locations</h1>
+        <h1>Inventory</h1>
 
-        <h4><a href="location_search.html">Search Table</a></h4>
+        <h4><a href="../searches/inventory_search.html">Search Table</a></h4>
 
-        <table id="locations">
+        <table id="inventory">
             <tr>
+                <th>Inventory ID#</th>
+                <th>Item Type</th>
+                <th>Category</th>
+                <th>Supplier ID#</th>
                 <th>Location ID#</th>
-                <th>Location Name</th>
-                <th>Location Type</th>
-                <th>Address</th>
-                <th>City</th>
-                <th>State</th>
-                <th>Zip</th>
+                <th>Number of Item</th>
                 <th>View Location</th>
             </tr>
             <tr>
                 <td>1</td>
-                <td>Location 1</td>
+                <td>Item 1</td>
                 <td>None</td>
-                <td>101 Main</td>
-                <td>Clemson</td>
-                <td>SC</td>
-                <td>29492</td>
-                <td><a href="location_view.html">edit</a></td>
+                <td>Wood</td>
+                <td>1</td>
+                <td>10</td>
+                <td><a href="../views/inventory_view.html">edit</a></td>
             </tr>
             <tr>
                 <td>2</td>
-                <td>Location 2</td>
+                <td>Item 2</td>
                 <td>None</td>
-                <td>102 Main</td>
-                <td>Clemson</td>
-                <td>SC</td>
-                <td>29492</td>
-                <td><a href="location_view.html">edit</a></td>
+                <td>Wood</td>
+                <td>2</td>
+                <td>3</td>
+                <td><a href="../views/inventory_view.html">edit</a></td>
             </tr>
             <tr>
                 <td>3</td>
-                <td>Location 3</td>
+                <td>Item 3</td>
                 <td>None</td>
-                <td>103 Main</td>
-                <td>Clemson</td>
-                <td>SC</td>
-                <td>29492</td>
-                <td><a href="location_view.html">edit</a></td>
+                <td>Wood</td>
+                <td>3</td>
+                <td>12</td>
+                <td><a href="../views/inventory_view.html">edit</a></td>
             </tr>
 
         </table>

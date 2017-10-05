@@ -21,12 +21,12 @@
 
 <body>
     <ul>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="profile.html">Profile</a></li>
+        <li><a href="../home.html">Home</a></li>
+        <li><a href="../profile.html">Profile</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="project_table.html">Back</a></li>
+        <li><a href="../tables/supplier_table.html">Back</a></li>
     </ul>
-    <h1>Search Project Table</h1>
+    <h1>Search Supplier Table</h1>
     <fieldset>
         <table class="data">
             <thead>
@@ -39,16 +39,16 @@
             </thead>
             <tbody>
                 <tr class="noclick even">
-                    <th>project_id</th>
+                    <th>supplier_id</th>
                     <td>int(11)</td>
-                    <td><select name="criteriaColumnOperators[4]"><option value="=">=</option><option value="!=">!=</option><option value=">">></option><option value="<"><</option><option value=">=">>=</option><option value="<="><=</option></select></td>
-                    <td><input type="text" name="criteriaValues[4]" size="40" class="textfield" id="fieldID_4"></td>
+                    <td><select name="criteriaColumnOperators[5]"><option value="=">=</option><option value="!=">!=</option><option value=">">></option><option value="<"><</option><option value=">=">>=</option><option value="<="><=</option></select></td>
+                    <td><input type="text" name="criteriaValues[5]" size="40" class="textfield" id="fieldID_5"></td>
                 </tr>
                 <tr>
-                    <td><input type="hidden" name="criteriaColumnNames[4]" value="user_id"><input type="hidden" name="criteriaColumnTypes[4]" value="int(11)"><input type="hidden" name="criteriaColumnCollations[4]" value=""></td>
+                    <td><input type="hidden" name="criteriaColumnNames[5]" value="user_id"><input type="hidden" name="criteriaColumnTypes[5]" value="int(11)"><input type="hidden" name="criteriaColumnCollations[5]" value=""></td>
                 </tr>
                 <tr class="noclick odd">
-                    <th>project_name</th>
+                    <th>supplier_name</th>
                     <td>varchar(30)</td>
                     <td><select name="criteriaColumnOperators[0]"><option value="LIKE">LIKE</option><option value="=">=</option><option value="!=">!=</option></td>
                     <td><input type="text" name="criteriaValues[0]" size="40" class="textfield" id="fieldID_0"></td>
@@ -57,16 +57,16 @@
                     <td><input type="hidden" name="criteriaColumnNames[0]" value="user_name"><input type="hidden" name="criteriaColumnTypes[0]" value="varchar(25)"><input type="hidden" name="criteriaColumnCollations[0]" value="latin1_swedish_ci"></td>
                 </tr>
                 <tr class="noclick even">
-                    <th>customer_id</th>
-                    <td>int(11)</td>
-                    <td><select name="criteriaColumnOperators[1]"><option value="=">=</option><option value="!=">!=</option><option value=">">></option><option value="<"><</option><option value=">=">>=</option><option value="<="><=</option></select></td>
+                    <th>product_type</th>
+                    <td>varchar(30)</td>
+                    <td><select name="criteriaColumnOperators[1]"><option value="LIKE">LIKE</option><option value="=">=</option><option value="!=">!=</option></select></td>
                     <td><input type="text" name="criteriaValues[1]" size="40" class="textfield" id="fieldID_1"></td>
                 </tr>
                 <tr>
                     <td><input type="hidden" name="criteriaColumnNames[1]" value="first_name"><input type="hidden" name="criteriaColumnTypes[1]" value="varchar(25)"><input type="hidden" name="criteriaColumnCollations[1]" value="latin1_swedish_ci"></td>
                 </tr>
                 <tr class="noclick odd">
-                    <th>project_type</th>
+                    <th>contact_name</th>
                     <td>varchar(30)</td>
                     <td><select name="criteriaColumnOperators[2]"><option value="LIKE">LIKE</option><option value="=">=</option><option value="!=">!=</option></td>
                     <td><input type="text" name="criteriaValues[2]" size="40" class="textfield" id="fieldID_2"></td>
@@ -77,11 +77,20 @@
                 <tr class="noclick even">
                     <th>location_id</th>
                     <td>int(11)</td>
-                    <td><select name="criteriaColumnOperators[3]"><<option value="=">=</option><option value="!=">!=</option><option value=">">></option><option value="<"><</option><option value=">=">>=</option><option value="<="><=</option></select></td>
+                    <td><select name="criteriaColumnOperators[3]"><option value="=">=</option><option value="!=">!=</option><option value=">">></option><option value="<"><</option><option value=">=">>=</option><option value="<="><=</option></select></td>
                     <td><input type="text" name="criteriaValues[3]" size="40" class="textfield" id="fieldID_3"></td>
                 </tr>
                 <tr>
                     <td><input type="hidden" name="criteriaColumnNames[3]" value="admin_rights"><input type="hidden" name="criteriaColumnTypes[3]" value="tinyint(1)"><input type="hidden" name="criteriaColumnCollations[3]" value=""></td>
+                </tr>
+                <tr class="noclick odd">
+                    <th>phone_number</th>
+                    <td>varchar(30)</td>
+                    <td><select name="criteriaColumnOperators[6]"><option value="LIKE">LIKE</option><option value="=">=</option><option value="!=">!=</option></select></td>
+                    <td><input type="text" name="criteriaValues[6]" size="40" class="textfield" id="fieldID_6"></td>
+                </tr>
+                <tr>
+                    <td><input type="hidden" name="criteriaColumnNames[6]" value="phone"><input type="hidden" name="criteriaColumnTypes[6]" value="varchar(25)"><input type="hidden" name="criteriaColumnCollations[6]" value="latin1_swedish_ci"></td>
                 </tr>
             </tbody>
         </table>
@@ -89,13 +98,14 @@
     <div id="gis_editor"></div>
     <div id="popup_background"></div>
     <fieldset id="fieldset_display_order">
-        <legend>Display order:</legend><select name="orderByColumn"><option value="--nil--"></option>
-<option value="project_id">project_id</option>
-<option value="project_name">project_name</option>
-<option value="customer_id">customer_id</option>
-<option value="project_type">project_type</option>
-<option value="location_id">location_id</option>
-</select>
+        <legend>Display order:</legend><select name="orderByColumn"><option value="--nil--"></option>        
+            <option value="supplier_id">supplier_id</option>
+            <option value="supplier_name">supplier_name</option>
+            <option value="location_id">location_id</option>
+            <option value="product_type">product_type</option>
+            <option value="contact_name">contact_name</option>
+            <option value="phone_number">phone_number</option>
+        </select>
         <div class="formelement"><input type="radio" name="order" id="order_ASC" value="ASC" checked="checked">
             <label for="order_ASC">Ascending</label></div>
         <div class="formelement"><input type="radio" name="order" id="order_DESC" value="DESC">
