@@ -49,24 +49,24 @@
                 </tr>
                 <tr class="noclick odd">
                     <th>inventory_type</th>
-                    <td>varchar(30)</td>
+                    <td>varchar(40)</td>
                     <td><select name="criteriaColumnOperators[0]"><option value="LIKE">LIKE</option><option value="=">=</option><option value="!=">!=</option></td>
                     <td><input type="text" name="criteriaValues[0]" size="40" class="textfield" id="fieldID_0"></td>
                 </tr>
                 <tr>
-                    <td><input type="hidden" name="criteriaColumnNames[0]" value="user_name"><input type="hidden" name="criteriaColumnTypes[0]" value="varchar(25)"><input type="hidden" name="criteriaColumnCollations[0]" value="latin1_swedish_ci"></td>
+                    <td><input type="hidden" name="criteriaColumnNames[0]" value="user_name"><input type="hidden" name="criteriaColumnTypes[0]" value="varchar(40)"><input type="hidden" name="criteriaColumnCollations[0]" value="latin1_swedish_ci"></td>
                 </tr>
                 <tr class="noclick even">
                     <th>category</th>
-                    <td>varchar(30)</td>
+                    <td>varchar(40)</td>
                     <td><select name="criteriaColumnOperators[1]"><option value="LIKE">LIKE</option><option value="=">=</option><option value="!=">!=</option></td>
                     <td><input type="text" name="criteriaValues[1]" size="40" class="textfield" id="fieldID_1"></td>
                 </tr>
                 <tr>
-                    <td><input type="hidden" name="criteriaColumnNames[1]" value="first_name"><input type="hidden" name="criteriaColumnTypes[1]" value="varchar(25)"><input type="hidden" name="criteriaColumnCollations[1]" value="latin1_swedish_ci"></td>
+                    <td><input type="hidden" name="criteriaColumnNames[1]" value="first_name"><input type="hidden" name="criteriaColumnTypes[1]" value="varchar(40)"><input type="hidden" name="criteriaColumnCollations[1]" value="latin1_swedish_ci"></td>
                 </tr>
                 <tr class="noclick odd">
-                    <th>supplier_id</th>
+                    <th>inv_supplier_id</th>
                     <td>int(11)</td>
                     <td><select name="criteriaColumnOperators[2]"><option value="=">=</option><option value="!=">!=</option><option value=">">></option><option value="<"><</option><option value=">=">>=</option><option value="<="><=</option></td>
                     <td><input type="text" name="criteriaValues[2]" size="40" class="textfield" id="fieldID_2"></td>
@@ -75,13 +75,31 @@
                     <td><input type="hidden" name="criteriaColumnNames[2]" value="last_name"><input type="hidden" name="criteriaColumnTypes[2]" value="varchar(25)"><input type="hidden" name="criteriaColumnCollations[2]" value="latin1_swedish_ci"></td>
                 </tr>
                 <tr class="noclick even">
-                    <th>location_id</th>
+                    <th>inv_supplier_name</th>
+                    <td>varchar(40)</td>
+                    <td><select name="criteriaColumnOperators[8]"><option value="LIKE">LIKE</option><option value="=">=</option><option value="!=">!=</option></td>
+                    <td><input type="text" name="criteriaValues[8]" size="40" class="textfield" id="fieldID_8"></td>
+                </tr>
+                <tr>
+                    <td><input type="hidden" name="criteriaColumnNames[8]" value="first_name"><input type="hidden" name="criteriaColumnTypes[8]" value="varchar(40)"><input type="hidden" name="criteriaColumnCollations[8]" value="latin1_swedish_ci"></td>
+                </tr>
+                <tr class="noclick even">
+                    <th>inv_location_id</th>
                     <td>int(11)</td>
                     <td><select name="criteriaColumnOperators[3]"><option value="=">=</option><option value="!=">!=</option><option value=">">></option><option value="<"><</option><option value=">=">>=</option><option value="<="><=</option></select></td>
                     <td><input type="text" name="criteriaValues[3]" size="40" class="textfield" id="fieldID_3"></td>
                 </tr>
                 <tr>
                     <td><input type="hidden" name="criteriaColumnNames[3]" value="admin_rights"><input type="hidden" name="criteriaColumnTypes[3]" value="tinyint(1)"><input type="hidden" name="criteriaColumnCollations[3]" value=""></td>
+                </tr>
+                <tr class="noclick even">
+                    <th>inv_location_name</th>
+                    <td>varchar(40)</td>
+                    <td><select name="criteriaColumnOperators[7]"><option value="LIKE">LIKE</option><option value="=">=</option><option value="!=">!=</option></td>
+                    <td><input type="text" name="criteriaValues[7]" size="40" class="textfield" id="fieldID_7"></td>
+                </tr>
+                <tr>
+                    <td><input type="hidden" name="criteriaColumnNames[7]" value="first_name"><input type="hidden" name="criteriaColumnTypes[7]" value="varchar(40)"><input type="hidden" name="criteriaColumnCollations[7]" value="latin1_swedish_ci"></td>
                 </tr>
                 <tr class="noclick odd">
                     <th>number_of</th>
