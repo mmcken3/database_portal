@@ -36,8 +36,8 @@
             $argument1 = $_GET['argument1'];
             if ($argument1 != 'create') {
                 $peices = explode(",", $argument1);
-                $user_name = $peices[0];
-                $user_id = $peices[1];
+                $user_name = $peices[1];
+                $user_id = $peices[0];
                 $first_name = $peices[2];
                 $last_name = $peices[3];
                 $phone = $peices[4];

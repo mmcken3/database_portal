@@ -72,6 +72,15 @@
 
         <h4><a href="../searches/employee_search.html">Search Table</a></h4>
 
+        <input type="button" value="Create Entry" onClick="createFunction();">
+        <div>
+            <script>
+                function createFunction() {
+                    window.open("../views/employee_view.php?argument1=create", "_self")
+                }
+            </script>
+        </div>
+
         <?php
         $config = parse_ini_file("../config.ini");
         
