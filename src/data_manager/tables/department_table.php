@@ -3,27 +3,27 @@
 
 <body>
     <style>
-        #departments {
+        #table {
             font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
             border-collapse: collapse;
             width: 100%;
         }
         
-        #departments td,
-        #departments th {
+        #table td,
+        #table th {
             border: 1px solid #ddd;
             padding: 8px;
         }
         
-        #departments tr:nth-child(even) {
+        #table tr:nth-child(even) {
             background-color: #f2f2f2;
         }
         
-        #departments tr:hover {
+        #table tr:hover {
             background-color: #ddd;
         }
         
-        #departments th {
+        #table th {
             padding-top: 12px;
             padding-bottom: 12px;
             text-align: left;
@@ -69,51 +69,36 @@
             <li><a href="#about">About</a></li>
         </ul>
         <h1>Deparments</h1>
-        <?php
-            $config = parse_ini_file("../config.ini");
-            
-            $servername = $config['servername'];
-            $username = $config['username'];
-            $password = $config['password'];
-            
-            // Create connection
-            $conn = new mysqli($servername, $username, $password, 'mmcken3sql_d610');
-            
-            // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            } 
 
-            $sql = "SELECT * FROM departments ORDER BY department_id;";
-            $result = $conn->query($sql);
-            
-            if ($result->num_rows > 0) {
-                // output data of each row
-                echo "<table id='departments'>";
-                echo "<tr>";
-                    echo "<th>department_id</th>";
-                    echo "<th>department_name</th>";
-                    echo "<th>dept_manager_id</th>";
-                    echo "<th>dept_manager_name</th>";
-                    echo "<th>Edit</th>";
-                echo "</tr>";
-                while($row = $result->fetch_assoc()) {
-                    echo "<tr>";
-                        echo "<td>" . $row['department_id'] . "</td>";
-                        echo "<td>" . $row['department_name'] . "</td>";
-                        echo "<td>" . $row['dept_manager_id'] . "</td>";
-                        echo "<td>" . $row['dept_manager_name'] . "</td>";
-                        echo "<td><a href='../views/department_view.html'>edit</a></td>";
-                    echo "</tr>";
-                }
-                echo "</table>";
-                // Free result set
-                mysqli_free_result($result);
-            } else {
-                echo "0 results";
-            }
-            $conn->close();
+        <h4><a href="../searches/department_search.php">Search Table</a></h4>
+
+        <h4><a href="../views/employee_view.php?argument1=create">Create</a></h4>
+
+        <?php
+            $table_name = "departments";
+            $key = "order by";
+            $args = "department_id";
+            require_once("../php_scripts/search.php");
         ?>
+        <script>
+            var table = document.getElementsByTagName("table")[0];
+            var tbody = table.getElementsByTagName("tbody")[0];
+            tbody.onclick = function(e) {
+                e = e || window.event;
+                var data = [];
+                var target = e.srcElement || e.target;
+                while (target && target.nodeName !== "TR") {
+                    target = target.parentNode;
+                }
+                if (target) {
+                    var cells = target.getElementsByTagName("td");
+                    for (var i = 0; i < cells.length; i++) {
+                        data.push(cells[i].innerHTML);
+                    }
+                }
+                window.open("../views/department_view.php?argument1=" + data, "_self")
+            };
+        </script>
     </body>
 
 </html>

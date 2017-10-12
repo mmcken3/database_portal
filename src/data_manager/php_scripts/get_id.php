@@ -19,7 +19,7 @@
     if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
-            echo (intval($row['user_id']) + 1);
+            echo (intval($row[$id_type]) + 1);
         }
         // Free result set
         mysqli_free_result($result);
