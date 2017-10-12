@@ -25,10 +25,18 @@
     }
     echo "</tr>";
 
+    $peices = explode(",", $args);
+    $myArgs = "";
+    for ($i = 0; $i < sizeof($peices) - 1; $i++){
+        $myArgs = $myArgs . $peices[0] . " AND ";
+    }
+    $myArgs = $myArgs . $peices[(sizeof($peices) - 1)];
+
     $sql = "SELECT * FROM " . $table_name;
     if ($args != '') {
-        $sql = $sql . " " . $key . " " . $args;
+        $sql = $sql . " " . $key . " " . $myArgs;
     }
+    echo $sql;
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {

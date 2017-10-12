@@ -41,7 +41,7 @@
                 <tr class="noclick even">
                     <th>department_id</th>
                     <td>int(11)</td>
-                    <td><select id="fieldCriteria_2" name="criteriaColumnOperators[2]"><option value="=">=</option><option value="!=">!=</option><option value=">">></option><option value="<"><</option><option value=">=">>=</option><option value="<="><=</option></select></td>
+                    <td><select id="fieldCriteria_2" name="criteriaColumnOperators[2]"><option value="null"></option><option value="=">=</option><option value="!=">!=</option><option value=">">></option><option value="<"><</option><option value=">=">>=</option><option value="<="><=</option></select></td>
                     <td><input type="text" name="criteriaValues[2]" size="40" class="textfield" id="fieldID_2"></td>
                 </tr>
                 <tr>
@@ -50,7 +50,7 @@
                 <tr class="noclick odd">
                     <th>department_name</th>
                     <td>varchar(40)</td>
-                    <td><select name="criteriaColumnOperators[0]"><option value="LIKE">LIKE</option><option value="=">=</option><option value="!=">!=</option></td>
+                    <td><select id="fieldCriteria_0" name="criteriaColumnOperators[0]"><option value="null"></option><option value="LIKE">LIKE</option><option value="=">=</option><option value="!=">!=</option></td>
                     <td><input type="text" name="criteriaValues[0]" size="40" class="textfield" id="fieldID_0"></td>
                 </tr>
                 <tr>
@@ -59,7 +59,7 @@
                 <tr class="noclick even">
                     <th>dept_manager_id</th>
                     <td>int(11)</td>
-                    <td><select name="criteriaColumnOperators[1]"><option value="=">=</option><option value="!=">!=</option><option value=">">></option><option value="<"><</option><option value=">=">>=</option><option value="<="><=</option></select></td>
+                    <td><select name="criteriaColumnOperators[1]"><option value="null"></option><option value="=">=</option><option value="!=">!=</option><option value=">">></option><option value="<"><</option><option value=">=">>=</option><option value="<="><=</option></select></td>
                     <td><input type="text" name="criteriaValues[1]" size="40" class="textfield" id="fieldID_1"></td>
                 </tr>
                 <tr>
@@ -68,7 +68,7 @@
                 <tr class="noclick odd">
                     <th>dept_manager_name</th>
                     <td>varchar(40)</td>
-                    <td><select name="criteriaColumnOperators[3]"><option value="LIKE">LIKE</option><option value="=">=</option><option value="!=">!=</option></td>
+                    <td><select name="criteriaColumnOperators[3]"><option value="null"></option><option value="LIKE">LIKE</option><option value="=">=</option><option value="!=">!=</option></td>
                     <td><input type="text" name="criteriaValues[3]" size="40" class="textfield" id="fieldID_3"></td>
                 </tr>
                 <tr>
@@ -99,18 +99,45 @@
     <div>
         <script>
             function searchFunction() {
+                var args = "args="
                 var department_id = document.getElementById("fieldID_2").value;
                 var department_id_func = document.getElementById("fieldCriteria_2").value;
                 department_id = "department_id" + department_id_func + department_id; 
-                window.open("../searches/department_search.php?search=" + department_id, "_self")
+                if (department_id_func != "null") {
+                    args = args + department_id
+                }
+
+                var department_name = document.getElementById("fieldID_0").value;
+                var department_name_func = document.getElementById("fieldCriteria_0").value;
+                department_name = "department_name " + department_name_func + " '" + department_name + "'"; 
+                if (department_name_func != "null") {
+                    if (args != "args=") {
+                        args = args + "," + department_name
+                    }
+                    else {
+                        args = args + department_name
+                    }
+                }
+
+                $key = "key=" + "where";
+                $table_name = "table=departments"
+                //alert($table_name + "&" + $args + "&" + $key)
+                //window.open("../searches/department_search.php?search=" + department_id + "," + department_name, "_self")
+                window.open("../tables/search_display.php?" + $table_name + "&" + args + "&" + $key, "_self")
             }
         </script>
     </div>
     <?php
         if (isset($_GET['search'])) {
             $search = $_GET['search'];
+            $peices = explode(",", $search);
+            $mySearch = "";
+            for ($i = 0; $i < sizeof($peices) - 1; $i++){
+                $mySearch = $mySearch . $peices[0] . " AND ";
+            }
+            $mySearch = $mySearch . $peices[(sizeof($peices) - 1)];
             echo "<p>";
-            echo $search;
+            echo $mySearch;
             echo "</p>";
         }
     ?>

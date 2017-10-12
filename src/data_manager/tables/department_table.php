@@ -72,7 +72,7 @@
 
         <h4><a href="../searches/department_search.php">Search Table</a></h4>
 
-        <h4><a href="../views/employee_view.php?argument1=create">Create</a></h4>
+        <h4><a href="../views/department_view.php?argument1=create">Create</a></h4>
 
         <?php
             $table_name = "departments";
