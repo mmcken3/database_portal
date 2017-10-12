@@ -59,7 +59,7 @@
                 <tr class="noclick even">
                     <th>dept_manager_id</th>
                     <td>int(11)</td>
-                    <td><select name="criteriaColumnOperators[1]"><option value="null"></option><option value="=">=</option><option value="!=">!=</option><option value=">">></option><option value="<"><</option><option value=">=">>=</option><option value="<="><=</option></select></td>
+                    <td><select id="fieldCriteria_1" name="criteriaColumnOperators[1]"><option value="null"></option><option value="=">=</option><option value="!=">!=</option><option value=">">></option><option value="<"><</option><option value=">=">>=</option><option value="<="><=</option></select></td>
                     <td><input type="text" name="criteriaValues[1]" size="40" class="textfield" id="fieldID_1"></td>
                 </tr>
                 <tr>
@@ -68,7 +68,7 @@
                 <tr class="noclick odd">
                     <th>dept_manager_name</th>
                     <td>varchar(40)</td>
-                    <td><select name="criteriaColumnOperators[3]"><option value="null"></option><option value="LIKE">LIKE</option><option value="=">=</option><option value="!=">!=</option></td>
+                    <td><select id="fieldCriteria_3" name="criteriaColumnOperators[3]"><option value="null"></option><option value="LIKE">LIKE</option><option value="=">=</option><option value="!=">!=</option></td>
                     <td><input type="text" name="criteriaValues[3]" size="40" class="textfield" id="fieldID_3"></td>
                 </tr>
                 <tr>
@@ -119,10 +119,32 @@
                     }
                 }
 
+                var dept_manager_id = document.getElementById("fieldID_1").value;
+                var dept_manager_id_func = document.getElementById("fieldCriteria_1").value;
+                dept_manager_id = "dept_manager_id " + dept_manager_id_func + " '" + dept_manager_id + "'"; 
+                if (dept_manager_id_func != "null") {
+                    if (args != "args=") {
+                        args = args + "," + dept_manager_id 
+                    }
+                    else {
+                        args = args + dept_manager_id 
+                    }
+                }
+
+                var dept_manager_name = document.getElementById("fieldID_3").value;
+                var dept_manager_name_func = document.getElementById("fieldCriteria_3").value;
+                dept_manager_name = "dept_manager_name " + dept_manager_name_func + " '" + dept_manager_name + "'"; 
+                if (dept_manager_name_func != "null") {
+                    if (args != "args=") {
+                        args = args + "," + dept_manager_name 
+                    }
+                    else {
+                        args = args + dept_manager_name 
+                    }
+                }
+
                 $key = "key=" + "where";
                 $table_name = "table=departments"
-                //alert($table_name + "&" + $args + "&" + $key)
-                //window.open("../searches/department_search.php?search=" + department_id + "," + department_name, "_self")
                 window.open("../tables/search_display.php?" + $table_name + "&" + args + "&" + $key, "_self")
             }
         </script>
