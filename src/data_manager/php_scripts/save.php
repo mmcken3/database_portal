@@ -15,7 +15,7 @@
 
     $table_name = "departments";
     $fields = "department_id, department_name, dept_manager_id, dept_manager_name";
-    $values = "8, 'trucks', null, null";
+    $values = "8, 'trucking', null, null";
 
     $sql = "insert into " . $table_name . " (" . $fields . ") values (" . $values . ") on duplicate key update ";
     if ($fields != "") {
@@ -30,7 +30,6 @@
             }
         }
     }
-    echo $sql;
     $result = $conn->query($sql);
 
     $conn->close();

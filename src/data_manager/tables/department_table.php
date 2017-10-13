@@ -59,6 +59,17 @@
         tr:hover { 
             background-color : #89ae37; 
         }
+        .button {
+            font: bold 11px Arial;
+            text-decoration: none;
+            background-color: #EEEEEE;
+            color: #333333;
+            padding: 2px 6px 2px 6px;
+            border-top: 1px solid #CCCCCC;
+            border-right: 1px solid #333333;
+            border-bottom: 1px solid #333333;
+            border-left: 1px solid #CCCCCC;
+        }
     </style>
     </head>
 
@@ -70,9 +81,9 @@
         </ul>
         <h1>Deparments</h1>
 
-        <h4><a href="../searches/department_search.php">Search Table</a></h4>
+        <h4><a href="../searches/department_search.php" class="button">Search Table</a></h4>
 
-        <h4><a href="../views/department_view.php?argument1=create">Create</a></h4>
+        <h4><a href="../views/department_view.php?argument1=create" class="button">Create</a></h4>
 
         <?php
             $table_name = "departments";
