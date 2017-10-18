@@ -54,88 +54,54 @@
                 $dept_manager_name = $peices[3];
             }
         ?>
-        <div>
-            <h3>Department ID Number</h3>
-            <p><?php
-                if ($argument1 != 'create') {
-                    echo $department_id;
-                }
-                else {
-                    $table = 'departments';
-                    $id_type = 'department_id';
-                    include('../php_scripts/get_id.php');
-                }
-            ?></p>
-        </div>
-        <div>
-            <h3>Department Name</h3>
-            <p><?php
-                if ($argument1 != 'create') {
-                    echo "<input id='department_name' value='" . $department_name ."' type='text' size='40' class='textfield' id='fieldID_2'>";
-                }
-            ?></p>
-        </div>
-        <div>
-            <h3>Department Manager ID Number</h3>
-            <p><?php
-                if ($argument1 != 'create') {
-                    echo "<input id='dept_manager_id' value='" . $dept_manager_id ."' type='text' size='40' class='textfield' id='fieldID_2'>";
-                }
-            ?></p>
-        </div>
-        <div>
-            <h3>Department Manager User Name</h3>
-            <p><?php
-                if ($argument1 != 'create') {
-                    echo "<input id='dept_manager_name' value='" . $dept_manager_name ."' type='text' size='40' class='textfield' id='fieldID_2'>";
-                }
-            ?></p>
-        </div>
-        <h4><a class="button" onClick="searchFunction();">Save</a></h4>
-        <script>
-            function searchFunction() {
-                var fields = "fields="
-                var values = "values="
-                
-                var department_name = document.getElementById("department_name").value;
-                if (department_name != "") {
-                    values = values + "'" + department_name + "'"
-                }
-            
-                var dept_manager_id = document.getElementById("dept_manager_id").value;
-                if (dept_manager_id != "") {
-                    if (values != "values=") {
-                    values = values + ","
+        <form action="department_submit.php" method="post">
+            <div>
+                <h3>Department ID Number</h3>
+                <p><?php
+                    if ($argument1 != 'create') {
+                        echo "<input name='department_id' value='" . $department_id ."' type='text' size='40' class='textfield' readonly>";
                     }
-                    values = values + dept_manager_id 
-                }
-
-                var dept_manager_name = document.getElementById("dept_manager_name").value;
-                if (dept_manager_name) {
-                    if (values != "values=") {
-                    values = values + ","
+                    else {
+                        $table = 'departments';
+                        $id_type = 'department_id';
+                        echo "<input name='department_id' value='";
+                        include('../php_scripts/get_id.php');
+                        echo "' type='text' size='40' class='textfield' readonly>";
                     }
-                    values = values + "'" + dept_manager_name + "'"
-                }
-
-                table_name = "table=departments"
-                window.open("../views/department_view.php?" + table_name + "&" + fields + "&" + values, "_self")
-            }
-        </script>
-        <?php
-            if (isset($_GET['table'])) {
-                $table_name = $_GET['table'];
-                echo "<p>" . $table_name . "</p>";
-            }
-            if (isset($_GET['fields'])) {
-                $fields = $_GET['fields'];
-                echo "<p>" . $fields . "</p>";
-            }
-            if (isset($_GET['values'])) {
-                $values = $_GET['values'];
-                echo "<p>" . $values . "</p>";
-            }
-        ?>
+                ?></p>
+            </div>
+            <div>
+                <h3>Department Name</h3>
+                <p><?php
+                    echo "<input name='department_name' value='";
+                    if ($argument1 != 'create') {
+                         echo $department_name;
+                    }
+                    echo "' type='text' size='40' class='textfield'>";
+                ?></p>
+            </div>
+            <div>
+                <h3>Department Manager ID Number</h3>
+                <p><?php
+                    echo "<input name='dept_manager_id' value='";
+                    if ($argument1 != 'create') {
+                        echo $dept_manager_id;
+                    }
+                    echo "' type='text' size='40' class='textfield'>";
+                ?></p>
+            </div>
+            <div>
+                <h3>Department Manager User Name</h3>
+                <p><?php
+                    echo "<input name='dept_manager_name' value='";
+                    if ($argument1 != 'create') {
+                        echo $dept_manager_name;
+                    }
+                    echo "' type='text' size='40' class='textfield'>";
+                ?></p>
+            </div>
+            <input type="submit" class="button"/>
+        </form>
     </body>
 
 </html>

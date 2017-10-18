@@ -66,6 +66,8 @@
         <li><a href="../home.html">Home</a></li>
         <li><a href="../profile.html">Profile</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="../tables/department_table.php">Back to Table</a></li>
+        <li><a href="../searches/department_search.php">Back to Search</a></li>
     </ul>
     <h1>Advanced Search Display</h1>
 
@@ -87,6 +89,7 @@
         $table_name = $_GET['table'];
         $key = $_GET['key'];
         $args = $_GET['args'];
+        $order = $_GET['order'];
 
         require_once("../php_scripts/search.php");
     ?>

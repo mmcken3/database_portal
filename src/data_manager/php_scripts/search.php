@@ -36,7 +36,10 @@
     if ($args != '') {
         $sql = $sql . " " . $key . " " . $myArgs;
     }
-    echo $sql;
+    if ($order != "") {
+        $orderParts = explode(",", $order);
+        $sql = $sql . " ORDER BY " . $orderParts[1] . " " . $orderParts[0];
+    }
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {

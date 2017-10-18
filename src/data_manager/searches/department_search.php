@@ -81,10 +81,11 @@
     <div id="popup_background"></div>
     <fieldset id="fieldset_display_order">
         <legend>Display order:</legend>
-        <select name="orderByColumn"><option value="--nil--"></option>
+        <select id="orderBySelect" name="orderByColumn"><option value="--nil--"></option>
             <option value="department_id">department_id</option>
-            <option value="department_name">project_name</option>
+            <option value="department_name">department_name</option>
             <option value="dept_manager_id">dept_manager_id</option>
+            <option value="dept_manager_name">dept_manager_name</option>
         </select>
         <div class="formelement"><input type="radio" name="order" id="order_ASC" value="ASC" checked="checked">
         <label for="order_ASC">Ascending</label></div>
@@ -143,26 +144,25 @@
                     }
                 }
 
+                var $order = "order=";
+                var orderBy = document.getElementById("orderBySelect").value;
+                if (orderBy != "--nil--") {
+                    var radios = document.getElementsByName('order');
+                    for (var i = 0, length = radios.length; i < length; i++) {
+                        if (radios[i].checked) {
+                            //alert(radios[i].value);
+                            $order = $order + radios[i].value;
+                            break;
+                        }
+                    }
+                    $order = $order + "," + orderBy;
+                }
                 $key = "key=" + "where";
                 $table_name = "table=departments"
-                window.open("../tables/search_display.php?" + $table_name + "&" + args + "&" + $key, "_self")
+                window.open("../tables/search_display.php?" + $table_name + "&" + args + "&" + $key + "&" + $order, "_self")
             }
         </script>
     </div>
-    <?php
-        if (isset($_GET['search'])) {
-            $search = $_GET['search'];
-            $peices = explode(",", $search);
-            $mySearch = "";
-            for ($i = 0; $i < sizeof($peices) - 1; $i++){
-                $mySearch = $mySearch . $peices[0] . " AND ";
-            }
-            $mySearch = $mySearch . $peices[(sizeof($peices) - 1)];
-            echo "<p>";
-            echo $mySearch;
-            echo "</p>";
-        }
-    ?>
 </body>
 
 </html>
