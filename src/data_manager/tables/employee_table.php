@@ -64,13 +64,13 @@
 
     <body>
         <ul>
-            <li><a href="../home.html">Home</a></li>
-            <li><a href="../profile.html">Profile</a></li>
+            <li><a href="../../static_web_views/home.html">Home</a></li>
+            <li><a href="../views/profile.php">Profile</a></li>
             <li><a href="#about">About</a></li>
         </ul>
         <h1>Employees</h1>
 
-        <h4><a href="../searches/employee_search.html">Search Table</a></h4>
+        <h4><a href="../searches/employee_search.php">Search Table</a></h4>
 
         <h4><a href="../views/employee_view.php?argument1=create">Create</a></h4>
 

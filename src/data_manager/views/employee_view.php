@@ -19,6 +19,18 @@
             display: block;
             padding: 8px;
         }
+
+        .button {
+            font: bold 11px Arial;
+            text-decoration: none;
+            background-color: #EEEEEE;
+            color: #333333;
+            padding: 2px 6px 2px 6px;
+            border-top: 1px solid #CCCCCC;
+            border-right: 1px solid #333333;
+            border-bottom: 1px solid #333333;
+            border-left: 1px solid #CCCCCC;
+        }
     </style>
 </head>
 
@@ -26,8 +38,8 @@
 
     <body>
         <ul>
-            <li><a href="../home.html">Home</a></li>
-            <li><a href="../profile.html">Profile</a></li>
+            <li><a href="../../static_web_views/home.html">Home</a></li>
+            <li><a href="../views/profile.php">Profile</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="../tables/employee_table.php">Back</a></li>
         </ul>
@@ -48,73 +60,115 @@
                 $emp_department_name = $peices[9];
             }
         ?>
-        <div>
-            <h3>User ID Number</h3>
-            <p><?php
-                if ($argument1 == 'create') {
-                    $table = 'employees';
-                    $id_type = 'user_id';
-                    include('../php_scripts/get_id.php');
-                }
-                else {
-                    echo $user_id;
-                }
-            ?></p>
-        </div>
-        <div>
-            <h3>User Name</h3>
-            <p><?php
-                echo $user_name
-            ?></p>
-        </div>
-        <div>
-            <h3>First Name</h3>
-            <p><?php
-                echo $first_name;
-            ?></p>
-        </div>
-        <div>
-            <h3>Last Name</h3>
-            <p><?php
-                echo $last_name;
-            ?></p>
-        </div>
-        <div>
-            <h3>Address</h3>
-            <p><?php
-                echo $address;
-            ?></p>
-        </div>
-        <div>
-            <h3>Phone Number</h3>
-            <p><?php
-                echo $phone;
-            ?></p>
-        </div>
-        <div>
-            <h3>Project ID Number</h3>
-            <p><?php
-                echo $emp_project_id;
-            ?></p>
-        </div>
-        <div>
-            <h3>Project Name</h3>
-            <p><?php
-                echo $emp_project_name;
-            ?></p>
-        </div>
-        <div>
-            <h3>Department ID Number</h3>
-            <p><?php
-                echo $emp_department_id;
-            ?></p>
-        </div>
-        <div>
-            <h3>Department Name</h3>
-            <p><?php
-                echo $emp_department_name;
-            ?></p>
-        </div>
+        <form action="employee_submit.php" method="post">
+            <div>
+                <h3>User ID Number</h3>
+                <p><?php
+                    if ($argument1 != 'create') {
+                        echo "<input name='user_id' value='" . $user_id ."' type='text' size='40' class='textfield' readonly>";
+                    }
+                    else {
+                        $table = 'employees';
+                        $id_type = 'user_id';
+                        echo "<input name='user_id' value='";
+                        include('../php_scripts/get_id.php');
+                        echo "' type='text' size='40' class='textfield' readonly>";
+                    }
+                ?></p>
+            </div>
+            <div>
+                <h3>User Name</h3>
+                <p><?php
+                        echo "<input name='user_name' value='";
+                        if ($argument1 != 'create') {
+                            echo $user_name;
+                        }
+                        echo "' type='text' size='40' class='textfield'>";
+                ?></p>
+            </div>
+            <div>
+                <h3>First Name</h3>
+                <p><?php
+                        echo "<input name='first_name' value='";
+                        if ($argument1 != 'create') {
+                            echo $first_name;
+                        }
+                        echo "' type='text' size='40' class='textfield'>";
+                ?></p>
+            </div>
+            <div>
+                <h3>Last Name</h3>
+                <p><?php
+                        echo "<input name='last_name' value='";
+                        if ($argument1 != 'create') {
+                            echo $last_name;
+                        }
+                        echo "' type='text' size='40' class='textfield'>";
+                ?></p>
+            </div>
+            <div>
+                <h3>Address</h3>
+                <p><?php
+                        echo "<input name='address' value='";
+                        if ($argument1 != 'create') {
+                            echo $address;
+                        }
+                        echo "' type='text' size='40' class='textfield'>";
+                ?></p>
+            </div>
+            <div>
+                <h3>Phone Number</h3>
+                <p><?php
+                        echo "<input name='phone_number' value='";
+                        if ($argument1 != 'create') {
+                            echo $phone;
+                        }
+                        echo "' type='text' size='40' class='textfield'>";
+                ?></p>
+            </div>
+            <div>
+                <h3>Project ID Number</h3>
+                <p><?php
+                        echo "<input name='emp_project_id' value='";
+                        if ($argument1 != 'create') {
+                            echo $emp_project_id;
+                        }
+                        echo "' type='text' size='40' class='textfield'>";
+                ?></p>
+            </div>
+            <div>
+                <h3>Project Name</h3>
+                <p><?php
+                        echo "<input name='emp_project_name' value='";
+                        if ($argument1 != 'create') {
+                            echo $emp_project_name;
+                        }
+                        echo "' type='text' size='40' class='textfield'>";
+                ?></p>
+            </div>
+            <div>
+                <h3>Department ID Number</h3>
+                <p><?php
+                        echo "<input name='emp_department_id' value='";
+                        if ($argument1 != 'create') {
+                            echo $emp_department_id;
+                        }
+                        echo "' type='text' size='40' class='textfield'>";
+                ?></p>
+            </div>
+            <div>
+                <h3>Department Name</h3>
+                <p><?php
+                        echo "<input name='emp_department_name' value='";
+                        if ($argument1 != 'create') {
+                            echo $emp_department_name;
+                        }
+                        echo "' type='text' size='40' class='textfield'>";
+                ?></p>
+            </div>
+            <input type="submit" name="save" value="Save" class="button"/>
+            <input type="submit" name="delete" value="Delete" class="button"/>
+        </form>
     </body>
 
 </html>
