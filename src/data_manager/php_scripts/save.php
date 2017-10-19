@@ -26,6 +26,7 @@
             }
         }
     }
+    echo $sql;
     $result = $conn->query($sql);
 
     $conn->close();
