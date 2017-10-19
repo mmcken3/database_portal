@@ -21,8 +21,8 @@
 
 <body>
     <ul>
-        <li><a href="../home.html">Home</a></li>
-        <li><a href="../profile.html">Profile</a></li>
+        <li><a href="../../static_web_views/home.html">Home</a></li>
+        <li><a href="../views/profile.php">Profile</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="../tables/department_table.php">Back</a></li>
     </ul>

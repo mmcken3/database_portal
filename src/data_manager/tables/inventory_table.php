@@ -79,16 +79,16 @@
             <li><a href="../views/profile.php">Profile</a></li>
             <li><a href="#about">About</a></li>
         </ul>
-        <h1>Deparments</h1>
+        <h1>Inventory</h1>
 
-        <h4><a href="../searches/department_search.php" class="button">Search Table</a></h4>
+        <h4><a href="../searches/inventory_search.php" class="button">Search Table</a></h4>
 
-        <h4><a href="../views/department_view.php?argument1=create" class="button">Create</a></h4>
+        <h4><a href="../views/inventory_view.php?argument1=create" class="button">Create</a></h4>
 
         <?php
-            $table_name = "departments";
+            $table_name = "inventory";
             $key = "order by";
-            $args = "department_id";
+            $args = "inventory_id";
             require_once("../php_scripts/search.php");
         ?>
         <script>
@@ -107,7 +107,7 @@
                         data.push(cells[i].innerHTML);
                     }
                 }
-                window.open("../views/department_view.php?argument1=" + data, "_self")
+                window.open("../views/inventory_view.php?argument1=" + data, "_self")
             };
         </script>
     </body>
