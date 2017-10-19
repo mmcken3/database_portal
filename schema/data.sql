@@ -9,14 +9,14 @@ insert into locations (location_name, loc_address, city, loc_state, zip) VALUES 
 insert into locations (location_name, loc_address, city, loc_state, zip) VALUES ("Lincoln Heights", "2121 Beatties Ford Rd", "Charlotte", "NC", 28216);
 insert into locations (location_name, loc_address, city, loc_state, zip) VALUES ("Hemming Plaza", "N Hogan St", "Jaxonville", "FL", 32202);
 insert into locations (location_name, loc_address, city, loc_state, zip) VALUES ("N Georgia - Gator Bowl Blvd", "2-98 N Georgia St", "Jaxonville", "FL", 32202);
-insert into locations (location_name, loc_address, city, loc_state, zip) VALUES ("Bank of America, FL", "50 N Laura St", "Jaxonville", "FL", 32202);
+insert into locations (location_name, loc_address, city, loc_state, zip) VALUES ("Bank of America FL", "50 N Laura St", "Jaxonville", "FL", 32202);
 insert into locations (location_name, loc_address, city, loc_state, zip) VALUES ("Georgia Tech Student Center", "350 Ferst Dr NW", "Atlanta", "GA", 30332);
 insert into locations (location_name, loc_address, city, loc_state, zip) VALUES ("Administrative Services Clemson", "108 Perimeter Rd", "Clemson", "SC", 29631);
 insert into locations (location_name, loc_address, city, loc_state, zip) VALUES ("Jaxonville City Hall", "117 W Duval St", "Jaxonville", "FL", 32202);
 COMMIT;
 
 START TRANSACTION;
-insert into customers (customer_name, cust_location_id, cust_location_name, contact_name, contact_number) VALUES ("Bank of America", 11, "Bank of America, FL", "John Smith", "123-456-7891");
+insert into customers (customer_name, cust_location_id, cust_location_name, contact_name, contact_number) VALUES ("Bank of America", 11, "Bank of America FL", "John Smith", "123-456-7891");
 insert into customers (customer_name, cust_location_id, cust_location_name, contact_name, contact_number) VALUES ("Clemson University", 13, "Administrative Services Clemson", "Cam Newton", "634-145-1245");
 insert into customers (customer_name, cust_location_id, cust_location_name, contact_name, contact_number) VALUES ("Georgia Tech University", 12, "Georgia Tech Student Center", "Matt Ryan", "124-654-3493");
 insert into customers (customer_name, cust_location_id, cust_location_name, contact_name, contact_number) VALUES ("Furman University", 5, "Furman Student Center", "Sam Ponder", "386-362-9851");
