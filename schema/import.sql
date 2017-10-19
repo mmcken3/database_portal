@@ -28,8 +28,8 @@ CREATE TABLE IF NOT EXISTS employees (
 CREATE TABLE IF NOT EXISTS suppliers (
 	supplier_id INT NOT NULL UNIQUE AUTO_INCREMENT,
 	supplier_name VARCHAR(40) NOT NULL,
-	supp_location_id INT NOT NULL,
-	supp_location_name VARCHAR(40) NOT NULL,
+	supp_location_id INT,
+	supp_location_name VARCHAR(40),
 	product_type VARCHAR(40),
 	contact_name VARCHAR(40),
 	phone_number VARCHAR(40),
@@ -45,10 +45,10 @@ CREATE TABLE IF NOT EXISTS inventory (
 	inventory_type VARCHAR(40) NOT NULL,
 	category VARCHAR(40),
 	number_of INT NOT NULL,
-	inv_supplier_id INT NOT NULL,
-	inv_supplier_name VARCHAR(40) NOT NULL,
-	inv_location_name VARCHAR(40) NOT NULL,
-	inv_location_id INT NOT NULL,
+	inv_supplier_id INT,
+	inv_supplier_name VARCHAR(40),
+	inv_location_name VARCHAR(40),
+	inv_location_id INT,
 	PRIMARY KEY (inventory_id, inventory_type)
 );
 
@@ -77,8 +77,8 @@ CREATE TABLE IF NOT EXISTS projects (
 	proj_customer_id INT,
 	proj_customer_name VARCHAR(40),
 	project_type VARCHAR(40),
-	proj_location_id INT NOT NULL,
-	proj_location_name VARCHAR(40) NOT NULL,
+	proj_location_id INT,
+	proj_location_name VARCHAR(40),
 	PRIMARY KEY (project_name, project_id)
 );
 
@@ -111,12 +111,12 @@ CREATE TABLE IF NOT EXISTS departments (
 -- Add foreign key relations
 -- ------------------------------------------
 
-ALTER TABLE employees ADD FOREIGN KEY (emp_project_id, emp_project_name) REFERENCES projects(project_id, project_name);
-ALTER TABLE employees ADD FOREIGN KEY (emp_department_id, emp_department_name) REFERENCES departments(department_id, department_name);
-ALTER TABLE suppliers ADD FOREIGN KEY (supp_location_id, supp_location_name) REFERENCES locations(location_id, location_name);
-ALTER TABLE inventory ADD FOREIGN KEY (inv_supplier_id, inv_supplier_name) REFERENCES suppliers(supplier_id, supplier_name);
-ALTER TABLE inventory ADD FOREIGN KEY (inv_location_id, inv_location_name) REFERENCES locations(location_id, location_name);
-ALTER TABLE projects ADD FOREIGN KEY (proj_location_id, proj_location_name) REFERENCES locations(location_id, location_name);
-ALTER TABLE projects ADD FOREIGN KEY (proj_customer_id, proj_customer_name) REFERENCES customers(customer_id, customer_name);
-ALTER TABLE customers ADD FOREIGN KEY (cust_location_id, cust_location_name) REFERENCES locations(location_id, location_name);
-ALTER TABLE departments ADD FOREIGN KEY (dept_manager_id, dept_manager_name) REFERENCES employees(user_id, user_name);
+ALTER TABLE employees ADD FOREIGN KEY (emp_project_id, emp_project_name) REFERENCES projects(project_id, project_name) ON UPDATE CASCADE ON DELETE SET NULL;
+ALTER TABLE employees ADD FOREIGN KEY (emp_department_id, emp_department_name) REFERENCES departments(department_id, department_name) ON UPDATE CASCADE ON DELETE SET NULL;
+ALTER TABLE suppliers ADD FOREIGN KEY (supp_location_id, supp_location_name) REFERENCES locations(location_id, location_name) ON UPDATE CASCADE ON DELETE SET NULL;
+ALTER TABLE inventory ADD FOREIGN KEY (inv_supplier_id, inv_supplier_name) REFERENCES suppliers(supplier_id, supplier_name) ON UPDATE CASCADE ON DELETE SET NULL;
+ALTER TABLE inventory ADD FOREIGN KEY (inv_location_id, inv_location_name) REFERENCES locations(location_id, location_name) ON UPDATE CASCADE ON DELETE SET NULL;
+ALTER TABLE projects ADD FOREIGN KEY (proj_location_id, proj_location_name) REFERENCES locations(location_id, location_name) ON UPDATE CASCADE ON DELETE SET NULL;
+ALTER TABLE projects ADD FOREIGN KEY (proj_customer_id, proj_customer_name) REFERENCES customers(customer_id, customer_name) ON UPDATE CASCADE ON DELETE SET NULL;
+ALTER TABLE customers ADD FOREIGN KEY (cust_location_id, cust_location_name) REFERENCES locations(location_id, location_name) ON UPDATE CASCADE ON DELETE SET NULL;
+ALTER TABLE departments ADD FOREIGN KEY (dept_manager_id, dept_manager_name) REFERENCES employees(user_id, user_name) ON UPDATE CASCADE ON DELETE SET NULL;
