@@ -37,11 +37,10 @@
             $customer_name = $_POST['customer_name'];
             $contact_name = $_POST['contact_name'];
             $contact_number = $_POST['contact_number'];
-            $cust_location_id = $_POST['cust_location_id'];
             $cust_location_name = $_POST['cust_location_name'];
             if ($_REQUEST['save'] == "Save") {
                 $table_name = "customers";
-                $fields = "customer_id, customer_name, contact_name, contact_number, cust_location_id, cust_location_name";
+                $fields = "customer_id, customer_name, contact_name, contact_number, cust_location_name";
                 $values = "" . $customer_id . ",'" . $customer_name . "',";
                 if ($contact_name == '') {
                     $values = $values . "null,";
@@ -54,12 +53,6 @@
                 }
                 else {
                     $values = $values . "'" . $contact_number . "',";
-                }
-                if ($cust_location_id == '') {
-                    $values = $values . "null,";
-                }
-                else {
-                    $values = $values . $cust_location_id . ",";
                 }
                 if ($cust_location_name == '') {
                     $values = $values . "null";

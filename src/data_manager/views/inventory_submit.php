@@ -37,13 +37,11 @@
             $inventory_type = $_POST['inventory_type'];
             $category = $_POST['category'];
             $number_of = $_POST['number_of'];
-            $inv_supplier_id = $_POST['inv_supplier_id'];
             $inv_supplier_name = $_POST['inv_supplier_name'];
             $inv_location_name = $_POST['inv_location_name'];
-            $inv_location_id = $_POST['inv_location_id'];
             if ($_REQUEST['save'] == "Save") {
                 $table_name = "inventory";
-                $fields = "inventory_id, inventory_type, category, number_of, inv_supplier_id, inv_supplier_name, inv_location_id, inv_location_name";
+                $fields = "inventory_id, inventory_type, category, number_of, inv_supplier_name, inv_location_name";
                 $values = "" . $inventory_id . ",'" . $inventory_type . "',";
                 if ($category == '') {
                     $values = $values . "null,";
@@ -57,23 +55,11 @@
                 else {
                     $values = $values . $number_of . ",";
                 }
-                if ($inv_supplier_id == '') {
-                    $values = $values . "null,";
-                }
-                else {
-                    $values = $values . $inv_supplier_id . ",";
-                }
                 if ($inv_supplier_name == '') {
                     $values = $values . "null,";
                 }
                 else {
                     $values = $values . "'" . $inv_supplier_name . "',";
-                }
-                if ($inv_location_id == '') {
-                    $values = $values . "null,";
-                }
-                else {
-                    $values = $values . $inv_location_id . ",";
                 }
                 if ($inv_location_name == '') {
                     $values = $values . "null";

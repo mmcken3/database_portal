@@ -39,13 +39,11 @@
             $last_name = $_POST['last_name'];
             $phone = $_POST['phone_number'];
             $address = $_POST['address'];
-            $emp_project_id = $_POST['emp_project_id'];
             $emp_project_name = $_POST['emp_project_name'];
-            $emp_department_id = $_POST['emp_department_id'];
             $emp_department_name = $_POST['emp_department_name'];
             if ($_REQUEST['save'] == "Save") {
                 $table_name = "employees";
-                $fields = "user_id, user_name, first_name, last_name, phone, user_address, emp_project_id, emp_project_name, emp_department_id, emp_department_name";
+                $fields = "user_id, user_name, first_name, last_name, phone, user_address, emp_project_name, emp_department_name";
                 $values = "" . $user_id . ",'" . $user_name . "',";
                 if ($first_name == '') {
                     $values = $values . "null,";
@@ -71,23 +69,11 @@
                 else {
                     $values = $values . "'" . $address . "',";
                 }
-                if ($emp_project_id == '') {
-                    $values = $values . "null,";
-                }
-                else {
-                    $values = $values . $emp_project_id . ",";
-                }
                 if ($emp_project_name == '') {
                     $values = $values . "null,";
                 }
                 else {
                     $values = $values . "'". $emp_project_name . "',";
-                }
-                if ($emp_department_id == '') {
-                    $values = $values . "null,";
-                }
-                else {
-                    $values = $values . $emp_department_id . ",";
                 }
                 if ($emp_department_name == '') {
                     $values = $values . "null";

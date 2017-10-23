@@ -35,21 +35,14 @@
         <?php
             $supplier_id = $_POST['supplier_id'];
             $supplier_name = $_POST['supplier_name'];
-            $supp_location_id = $_POST['supp_location_id'];
             $supp_location_name = $_POST['supp_location_name'];
             $product_type = $_POST['product_type'];
             $contact_name = $_POST['contact_name'];
             $phone_number = $_POST['phone_number'];
             if ($_REQUEST['save'] == "Save") {
                 $table_name = "suppliers";
-                $fields = "supplier_id, supplier_name, supp_location_id, supp_location_name, product_type, contact_name, phone_number";
+                $fields = "supplier_id, supplier_name, supp_location_name, product_type, contact_name, phone_number";
                 $values = "" . $supplier_id . ",'" . $supplier_name . "',";
-                if ($supp_location_id == '') {
-                    $values = $values . "null,";
-                }
-                else {
-                    $values = $values . $supp_location_id . ",";
-                }
                 if ($supp_location_name == '') {
                     $values = $values . "null,";
                 }

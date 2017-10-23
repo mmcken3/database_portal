@@ -52,8 +52,7 @@
                 $customer_name = $peices[1];
                 $contact_name = $peices[2];
                 $contact_number = $peices[3];
-                $cust_location_id = $peices[4];
-                $cust_location_name = $peices[5];
+                $cust_location_name = $peices[4];
             }
         ?>
         <form action="customer_submit.php" method="post">
@@ -98,16 +97,6 @@
                     echo "<input name='contact_number' value='";
                     if ($argument1 != 'create') {
                         echo $contact_number;
-                    }
-                    echo "' type='text' size='40' class='textfield'>";
-                ?></p>
-            </div>
-            <div>
-                <h3>Customer Location ID</h3>
-                <p><?php
-                    echo "<input name='cust_location_id' value='";
-                    if ($argument1 != 'create') {
-                        echo $cust_location_id;
                     }
                     echo "' type='text' size='40' class='textfield'>";
                 ?></p>

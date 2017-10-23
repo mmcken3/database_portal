@@ -50,11 +50,9 @@
                 $peices = explode(",", $argument1);
                 $project_id = $peices[0];
                 $project_name = $peices[1];
-                $proj_customer_id = $peices[2];
-                $proj_customer_name = $peices[3];
-                $project_type = $peices[4];
-                $proj_location_id = $peices[5];
-                $proj_location_name = $peices[6];
+                $proj_customer_name = $peices[2];
+                $project_type = $peices[3];
+                $proj_location_name = $peices[4];
             }
         ?>
         <form action="projects_submit.php" method="post">
@@ -84,16 +82,6 @@
                 ?></p>
             </div>
             <div>
-                <h3>Project Customer ID</h3>
-                <p><?php
-                    echo "<input name='proj_customer_id' value='";
-                    if ($argument1 != 'create') {
-                        echo $proj_customer_id;
-                    }
-                    echo "' type='text' size='40' class='textfield'>";
-                ?></p>
-            </div>
-            <div>
                 <h3>Project Customer Name</h3>
                 <p><?php
                     echo "<input name='proj_customer_name' value='";
@@ -109,16 +97,6 @@
                     echo "<input name='project_type' value='";
                     if ($argument1 != 'create') {
                         echo $project_type;
-                    }
-                    echo "' type='text' size='40' class='textfield'>";
-                ?></p>
-            </div>
-            <div>
-                <h3>Project Location ID</h3>
-                <p><?php
-                    echo "<input name='proj_location_id' value='";
-                    if ($argument1 != 'create') {
-                        echo $proj_location_id;
                     }
                     echo "' type='text' size='40' class='textfield'>";
                 ?></p>

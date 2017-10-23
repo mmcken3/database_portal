@@ -35,14 +35,12 @@
         <?php
             $project_id = $_POST['project_id'];
             $project_name = $_POST['project_name'];
-            $proj_customer_id = $_POST['proj_customer_id'];
             $proj_customer_name = $_POST['proj_customer_name'];
             $project_type = $_POST['project_type'];
-            $proj_location_id = $_POST['proj_location_id'];
             $proj_location_name = $_POST['proj_location_name'];
             if ($_REQUEST['save'] == "Save") {
                 $table_name = "projects";
-                $fields = "project_id, project_name, proj_customer_id, proj_customer_name, project_type, proj_location_id, proj_location_name";
+                $fields = "project_id, project_name, proj_customer_name, project_type, proj_location_name";
                 $values = "" . $project_id . ",'" . $project_name . "',";
                 if ($proj_customer_name == '') {
                     $values = $values . "null,";
@@ -50,23 +48,11 @@
                 else {
                     $values = $values . "'" . $proj_customer_name . "',";
                 }
-                if ($proj_customer_id == '') {
-                    $values = $values . "null,";
-                }
-                else {
-                    $values = $values . $proj_customer_id . ",";
-                }
                 if ($project_type == '') {
                     $values = $values . "null,";
                 }
                 else {
                     $values = $values . "'" . $project_type . "',";
-                }
-                if ($proj_location_id == '') {
-                    $values = $values . "null,";
-                }
-                else {
-                    $values = $values . $proj_location_id . ",";
                 }
                 if ($proj_location_name == '') {
                     $values = $values . "null";

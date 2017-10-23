@@ -54,10 +54,8 @@
                 $last_name = $peices[3];
                 $phone = $peices[4];
                 $address = $peices[5];
-                $emp_project_id = $peices[6];
-                $emp_project_name = $peices[7];
-                $emp_department_id = $peices[8];
-                $emp_department_name = $peices[9];
+                $emp_project_name = $peices[6];
+                $emp_department_name = $peices[7];
             }
         ?>
         <form action="employee_submit.php" method="post">
@@ -127,31 +125,12 @@
                 ?></p>
             </div>
             <div>
-                <h3>Project ID Number</h3>
-                <p><?php
-                        echo "<input name='emp_project_id' value='";
-                        if ($argument1 != 'create') {
-                            echo $emp_project_id;
-                        }
-                        echo "' type='text' size='40' class='textfield'>";
-                ?></p>
-            </div>
             <div>
                 <h3>Project Name</h3>
                 <p><?php
                         echo "<input name='emp_project_name' value='";
                         if ($argument1 != 'create') {
                             echo $emp_project_name;
-                        }
-                        echo "' type='text' size='40' class='textfield'>";
-                ?></p>
-            </div>
-            <div>
-                <h3>Department ID Number</h3>
-                <p><?php
-                        echo "<input name='emp_department_id' value='";
-                        if ($argument1 != 'create') {
-                            echo $emp_department_id;
                         }
                         echo "' type='text' size='40' class='textfield'>";
                 ?></p>

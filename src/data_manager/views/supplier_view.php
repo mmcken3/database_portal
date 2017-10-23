@@ -50,11 +50,10 @@
                 $peices = explode(",", $argument1);
                 $supplier_id = $peices[0];
                 $supplier_name = $peices[1];
-                $supp_location_id = $peices[2];
-                $supp_location_name = $peices[3];
-                $product_type = $peices[4];
-                $contact_name = $peices[5];
-                $phone_number = $peices[6];
+                $supp_location_name = $peices[2];
+                $product_type = $peices[3];
+                $contact_name = $peices[4];
+                $phone_number = $peices[5];
             }
         ?>
         <form action="supplier_submit.php" method="post">
@@ -79,16 +78,6 @@
                     echo "<input name='supplier_name' value='";
                     if ($argument1 != 'create') {
                          echo $supplier_name;
-                    }
-                    echo "' type='text' size='40' class='textfield'>";
-                ?></p>
-            </div>
-            <div>
-                <h3>Supplier Location ID</h3>
-                <p><?php
-                    echo "<input name='supp_location_id' value='";
-                    if ($argument1 != 'create') {
-                        echo $supp_location_id;
                     }
                     echo "' type='text' size='40' class='textfield'>";
                 ?></p>

@@ -74,15 +74,6 @@
                 <tr>
                     <td><input type="hidden" name="criteriaColumnNames[2]" value="last_name"><input type="hidden" name="criteriaColumnTypes[2]" value="varchar(40)"><input type="hidden" name="criteriaColumnCollations[2]" value="latin1_swedish_ci"></td>
                 </tr>
-                <tr class="noclick even">
-                    <th>cust_location_id</th>
-                    <td>int(11)</td>
-                    <td><select id='fieldCriteria_3' name="criteriaColumnOperators[3]"><option value="null"></option><option value="=">=</option><option value="!=">!=</option><option value=">">></option><option value="<"><</option><option value=">=">>=</option><option value="<="><=</option></select></td>
-                    <td><input type="text" name="criteriaValues[3]" size="40" class="textfield" id="fieldID_3"></td>
-                </tr>
-                <tr>
-                    <td><input type="hidden" name="criteriaColumnNames[3]" value="admin_rights"><input type="hidden" name="criteriaColumnTypes[3]" value="tinyint(1)"><input type="hidden" name="criteriaColumnCollations[3]" value=""></td>
-                </tr>
                 <tr class="noclick odd">
                     <th>cust_location_name</th>
                     <td>varchar(40)</td>
@@ -105,7 +96,7 @@
             <option value="customer_name">customer_name</option>
             <option value="contact_name">contact_name</option>
             <option value="contact_number">contact_number</option>
-            <option value="location_id">location_id</option>
+            <option value="cust_location_name">cust_location_name</option>
         </select>
         <div class="formelement"><input type="radio" name="order" id="order_ASC" value="ASC" checked="checked">
             <label for="order_ASC">Ascending</label></div>
@@ -159,18 +150,6 @@
                     }
                     else {
                         args = args + contact_number 
-                    }
-                }
-
-                var cust_location_id = document.getElementById("fieldID_3").value;
-                var cust_location_id_func = document.getElementById("fieldCriteria_3").value;
-                cust_location_id = "cust_location_id " + cust_location_id_func + " " + cust_location_id; 
-                if (cust_location_id_func != "null") {
-                    if (args != "args=") {
-                        args = args + "," + cust_location_id 
-                    }
-                    else {
-                        args = args + cust_location_id 
                     }
                 }
 

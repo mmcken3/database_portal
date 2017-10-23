@@ -50,8 +50,7 @@
                 $peices = explode(",", $argument1);
                 $department_id = $peices[0];
                 $department_name = $peices[1];
-                $dept_manager_id = $peices[2];
-                $dept_manager_name = $peices[3];
+                $dept_manager_name = $peices[2];
             }
         ?>
         <form action="department_submit.php" method="post">
@@ -76,16 +75,6 @@
                     echo "<input name='department_name' value='";
                     if ($argument1 != 'create') {
                          echo $department_name;
-                    }
-                    echo "' type='text' size='40' class='textfield'>";
-                ?></p>
-            </div>
-            <div>
-                <h3>Department Manager ID Number</h3>
-                <p><?php
-                    echo "<input name='dept_manager_id' value='";
-                    if ($argument1 != 'create') {
-                        echo $dept_manager_id;
                     }
                     echo "' type='text' size='40' class='textfield'>";
                 ?></p>

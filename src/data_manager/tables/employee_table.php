@@ -102,9 +102,7 @@
                     echo "<th>last_name</th>";
                     echo "<th>phone</th>";
                     echo "<th>user_address</th>";
-                    echo "<th>emp_project_id</th>";
                     echo "<th>emp_project_name</th>";
-                    echo "<th>emp_department_id</th>";
                     echo "<th>emp_department_name</th>";
                 echo "</tr>";
                 while($row = $result->fetch_assoc()) {
@@ -115,9 +113,7 @@
                         echo "<td>" . $row['last_name'] . "</td>";
                         echo "<td>" . $row['phone'] . "</td>";
                         echo "<td>" . $row['user_address'] . "</td>";
-                        echo "<td>" . $row['emp_project_id'] . "</td>";
                         echo "<td>" . $row['emp_project_name'] . "</td>";
-                        echo "<td>" . $row['emp_department_id'] . "</td>";
                         echo "<td>" . $row['emp_department_name'] . "</td>";
                     echo "</tr>";
                 }
