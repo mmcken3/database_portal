@@ -52,10 +52,8 @@
                 $inventory_type = $peices[1];
                 $category = $peices[2];
                 $number_of = $peices[3];
-                $inv_supplier_id = $peices[4];
-                $inv_supplier_name = $peices[5];
-                $inv_location_name = $peices[6];
-                $inv_location_id = $peices[7];
+                $inv_supplier_name = $peices[4];
+                $inv_location_name = $peices[5];
             }
         ?>
         <form action="inventory_submit.php" method="post">
@@ -105,31 +103,11 @@
                 ?></p>
             </div>
             <div>
-                <h3>Inventory Supplier ID</h3>
-                <p><?php
-                    echo "<input name='inv_supplier_id' value='";
-                    if ($argument1 != 'create') {
-                        echo $inv_supplier_id;
-                    }
-                    echo "' type='text' size='40' class='textfield'>";
-                ?></p>
-            </div>
-            <div>
                 <h3>Inventory Supplier Name</h3>
                 <p><?php
                     echo "<input name='inv_supplier_name' value='";
                     if ($argument1 != 'create') {
                         echo $inv_supplier_name;
-                    }
-                    echo "' type='text' size='40' class='textfield'>";
-                ?></p>
-            </div>
-            <div>
-                <h3>Inventory Location ID</h3>
-                <p><?php
-                    echo "<input name='inv_location_id' value='";
-                    if ($argument1 != 'create') {
-                        echo $inv_location_id;
                     }
                     echo "' type='text' size='40' class='textfield'>";
                 ?></p>

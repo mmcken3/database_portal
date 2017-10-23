@@ -35,23 +35,16 @@
         <?php
             $department_id = $_POST['department_id'];
             $department_name = $_POST['department_name'];
-            $dept_manager_id = $_POST['dept_manager_id'];
             $dept_manager_name = $_POST['dept_manager_name'];
             if ($_REQUEST['save'] == "Save") {
                 $table_name = "departments";
-                $fields = "department_id, department_name, dept_manager_id, dept_manager_name";
+                $fields = "department_id, department_name, dept_manager_name";
                 $values = "" . $department_id . ",'" . $department_name . "',";
-                if ($dept_manager_id == '') {
-                    $values = $values . "null,";
-                }
-                else {
-                    $values = $values . $dept_manager_id;
-                }
                 if ($dept_manager_name == '') {
                     $values = $values . "null";
                 }
                 else {
-                    $values = $values . ",'" . $dept_manager_name . "'";
+                    $values = $values . "'" . $dept_manager_name . "'";
                 }
     
                 // throw call to request manager here, and it will handle alert or save off this

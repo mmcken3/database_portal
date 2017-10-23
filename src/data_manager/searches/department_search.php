@@ -56,15 +56,6 @@
                 <tr>
                     <td><input type="hidden" name="criteriaColumnNames[0]" value="user_name"><input type="hidden" name="criteriaColumnTypes[0]" value="varchar(40)"><input type="hidden" name="criteriaColumnCollations[0]" value="latin1_swedish_ci"></td>
                 </tr>
-                <tr class="noclick even">
-                    <th>dept_manager_id</th>
-                    <td>int(11)</td>
-                    <td><select id="fieldCriteria_1" name="criteriaColumnOperators[1]"><option value="null"></option><option value="=">=</option><option value="!=">!=</option><option value=">">></option><option value="<"><</option><option value=">=">>=</option><option value="<="><=</option></select></td>
-                    <td><input type="text" name="criteriaValues[1]" size="40" class="textfield" id="fieldID_1"></td>
-                </tr>
-                <tr>
-                    <td><input type="hidden" name="criteriaColumnNames[1]" value="first_name"><input type="hidden" name="criteriaColumnTypes[1]" value="int(11)"><input type="hidden" name="criteriaColumnCollations[1]" value="latin1_swedish_ci"></td>
-                </tr>
                 <tr class="noclick odd">
                     <th>dept_manager_name</th>
                     <td>varchar(40)</td>
@@ -84,7 +75,6 @@
         <select id="orderBySelect" name="orderByColumn"><option value="--nil--"></option>
             <option value="department_id">department_id</option>
             <option value="department_name">department_name</option>
-            <option value="dept_manager_id">dept_manager_id</option>
             <option value="dept_manager_name">dept_manager_name</option>
         </select>
         <div class="formelement"><input type="radio" name="order" id="order_ASC" value="ASC" checked="checked">
@@ -117,18 +107,6 @@
                     }
                     else {
                         args = args + department_name
-                    }
-                }
-
-                var dept_manager_id = document.getElementById("fieldID_1").value;
-                var dept_manager_id_func = document.getElementById("fieldCriteria_1").value;
-                dept_manager_id = "dept_manager_id " + dept_manager_id_func + " '" + dept_manager_id + "'"; 
-                if (dept_manager_id_func != "null") {
-                    if (args != "args=") {
-                        args = args + "," + dept_manager_id 
-                    }
-                    else {
-                        args = args + dept_manager_id 
                     }
                 }
 
