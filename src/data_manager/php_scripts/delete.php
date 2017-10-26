@@ -13,7 +13,7 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "delete from " . $table_name . " where " . $table_id . "=" . $id_value . " and " . $table_id_name . "=" . $name_value;
+    $sql = "delete from " . $table_name . " where " . $table_id . "=" . $id_value;
     $result = $conn->query($sql);
 
     $conn->close();

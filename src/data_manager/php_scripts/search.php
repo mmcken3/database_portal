@@ -18,7 +18,7 @@
     $column_array = array();
 
     echo "<table id='table'>";
-    echo "<tr>";
+    echo "<tr id='headers'>";
     while($row = $result->fetch_assoc()) {
         array_push($column_array, $row['Field']);
         echo "<th>" . $row['Field'] . "</th>";

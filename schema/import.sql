@@ -5,8 +5,8 @@
 -- ------------------------------------------
 -- Create table for 'employees'
 -- ------------------------------------------
-CREATE TABLE IF NOT EXISTS employees (
-	user_id INT NOT NULL UNIQUE AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS employee (
+	employee_id INT NOT NULL UNIQUE AUTO_INCREMENT,
 	user_name VARCHAR(40) NOT NULL UNIQUE,
 	first_name VARCHAR(40),
 	last_name VARCHAR(40),
@@ -16,14 +16,14 @@ CREATE TABLE IF NOT EXISTS employees (
 	user_address VARCHAR(40),
 	emp_project_name VARCHAR(40),
 	emp_department_name VARCHAR(40),
-	PRIMARY KEY (user_name, user_id)
+	PRIMARY KEY (user_name, employee_id)
 );
 
 -- ------------------------------------------
 -- Create table for 'suppliers'
 -- ------------------------------------------
 
-CREATE TABLE IF NOT EXISTS suppliers (
+CREATE TABLE IF NOT EXISTS supplier (
 	supplier_id INT NOT NULL UNIQUE AUTO_INCREMENT,
 	supplier_name VARCHAR(40) UNIQUE NOT NULL,
 	supp_location_name VARCHAR(40),
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS inventory (
 -- Create table for 'locations'
 -- ------------------------------------------
 
-CREATE TABLE IF NOT EXISTS locations (
+CREATE TABLE IF NOT EXISTS location (
 	location_id INT NOT NULL UNIQUE AUTO_INCREMENT,
 	location_name VARCHAR(40) UNIQUE NOT NULL,
 	location_type VARCHAR(40),
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS locations (
 -- Create table for 'projects'
 -- ------------------------------------------
 
-CREATE TABLE IF NOT EXISTS projects (
+CREATE TABLE IF NOT EXISTS project (
 	project_id INT NOT NULL UNIQUE AUTO_INCREMENT,
 	project_name VARCHAR(40) UNIQUE NOT NULL,
 	proj_customer_name VARCHAR(40),
@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS projects (
 -- Create table for 'customers'
 -- ------------------------------------------
 
-CREATE TABLE IF NOT EXISTS customers (
+CREATE TABLE IF NOT EXISTS customer (
 	customer_id INT NOT NULL UNIQUE AUTO_INCREMENT,
 	customer_name VARCHAR(40) UNIQUE NOT NULL,
 	contact_name VARCHAR(40),
@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS customers (
 -- Create table for 'departments'
 -- ------------------------------------------
 
-CREATE TABLE IF NOT EXISTS departments (
+CREATE TABLE IF NOT EXISTS department (
 	department_id INT NOT NULL UNIQUE AUTO_INCREMENT,
 	department_name VARCHAR(40) UNIQUE,
 	dept_manager_name VARCHAR(40),
@@ -102,12 +102,12 @@ CREATE TABLE IF NOT EXISTS departments (
 -- Add foreign key relations
 -- ------------------------------------------
 
-ALTER TABLE employees ADD FOREIGN KEY (emp_project_name) REFERENCES projects(project_name) ON UPDATE CASCADE ON DELETE SET NULL;
-ALTER TABLE employees ADD FOREIGN KEY (emp_department_name) REFERENCES departments(department_name) ON UPDATE CASCADE ON DELETE SET NULL;
-ALTER TABLE suppliers ADD FOREIGN KEY (supp_location_name) REFERENCES locations(location_name) ON UPDATE CASCADE ON DELETE SET NULL;
-ALTER TABLE inventory ADD FOREIGN KEY (inv_supplier_name) REFERENCES suppliers(supplier_name) ON UPDATE CASCADE ON DELETE SET NULL;
-ALTER TABLE inventory ADD FOREIGN KEY (inv_location_name) REFERENCES locations(location_name) ON UPDATE CASCADE ON DELETE SET NULL;
-ALTER TABLE projects ADD FOREIGN KEY (proj_location_name) REFERENCES locations(location_name) ON UPDATE CASCADE ON DELETE SET NULL;
-ALTER TABLE projects ADD FOREIGN KEY (proj_customer_name) REFERENCES customers(customer_name) ON UPDATE CASCADE ON DELETE SET NULL;
-ALTER TABLE customers ADD FOREIGN KEY (cust_location_name) REFERENCES locations(location_name) ON UPDATE CASCADE ON DELETE SET NULL;
-ALTER TABLE departments ADD FOREIGN KEY (dept_manager_name) REFERENCES employees(user_name) ON UPDATE CASCADE ON DELETE SET NULL;
+ALTER TABLE employee ADD FOREIGN KEY (emp_project_name) REFERENCES project(project_name) ON UPDATE CASCADE ON DELETE SET NULL;
+ALTER TABLE employee ADD FOREIGN KEY (emp_department_name) REFERENCES department(department_name) ON UPDATE CASCADE ON DELETE SET NULL;
+ALTER TABLE supplier ADD FOREIGN KEY (supp_location_name) REFERENCES location(location_name) ON UPDATE CASCADE ON DELETE SET NULL;
+ALTER TABLE inventory ADD FOREIGN KEY (inv_supplier_name) REFERENCES supplier(supplier_name) ON UPDATE CASCADE ON DELETE SET NULL;
+ALTER TABLE inventory ADD FOREIGN KEY (inv_location_name) REFERENCES location(location_name) ON UPDATE CASCADE ON DELETE SET NULL;
+ALTER TABLE project ADD FOREIGN KEY (proj_location_name) REFERENCES location(location_name) ON UPDATE CASCADE ON DELETE SET NULL;
+ALTER TABLE project ADD FOREIGN KEY (proj_customer_name) REFERENCES customer(customer_name) ON UPDATE CASCADE ON DELETE SET NULL;
+ALTER TABLE customer ADD FOREIGN KEY (cust_location_name) REFERENCES location(location_name) ON UPDATE CASCADE ON DELETE SET NULL;
+ALTER TABLE department ADD FOREIGN KEY (dept_manager_name) REFERENCES employee(user_name) ON UPDATE CASCADE ON DELETE SET NULL;
