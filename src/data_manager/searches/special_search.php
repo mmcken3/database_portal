@@ -24,7 +24,7 @@
         $table_name = $_GET['table'];
     ?>
     <ul>
-    <li><a href="../../static_web_views/home.html">Home</a></li>
+    <li><a href="../../home.html">Home</a></li>
     <li><a href="../views/profile.php">Profile</a></li>
     <li><a href="#about">About</a></li>
     <li><a <?php echo "href='../tables/table_view.php?table=" . $table_name . "'"?> >Back</a></li>
