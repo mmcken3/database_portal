@@ -84,7 +84,7 @@
         </ul>
         <h1><?php echo ucfirst($table_name);?></h1>
 
-        <h4><a href=<?php echo "../searches/" . $table_name . "_search.php";?> class="button">Search Table</a></h4>
+        <h4><a href=<?php echo "../searches/special_search.php?table=" . $table_name;?> class="button">Search Table</a></h4>
 
         <input type="submit" value="Create" onClick="createFunction();">
         <h4></h4>

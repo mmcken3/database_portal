@@ -12,7 +12,6 @@
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-
     $sql = "SHOW COLUMNS FROM " . $table_name;
     $result = $conn->query($sql);
     $column_array = array();
