@@ -4,9 +4,10 @@
     $servername = $config['servername'];
     $username = $config['username'];
     $password = $config['password'];
+    $database = $config['database'];
 
     // Create connection
-    $conn = new mysqli($servername, $username, $password, 'mmcken3sql_d610');
+    $conn = new mysqli($servername, $username, $password, $database);
 
     // Check connection
     if ($conn->connect_error) {

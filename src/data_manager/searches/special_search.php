@@ -24,10 +24,11 @@
         $table_name = $_GET['table'];
     ?>
     <ul>
-    <li><a href="../../home.html">Home</a></li>
+    <li><a href="../../home.php">Home</a></li>
     <li><a href="../views/profile.php">Profile</a></li>
     <li><a href="#about">About</a></li>
     <li><a <?php echo "href='../tables/table_view.php?table=" . $table_name . "'"?> >Back</a></li>
+    <li><a href="../../index.php?logout=true">Logout</a></li>
     </ul>
     <h1>Search Display</h1>
     <?php

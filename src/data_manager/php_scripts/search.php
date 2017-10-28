@@ -1,12 +1,15 @@
 <?php
+    $login_user =  $_SESSION["login"];
+    $admin_rights = $_SESSION["admin"];
     $config = parse_ini_file("../config.ini");
 
     $servername = $config['servername'];
     $username = $config['username'];
     $password = $config['password'];
+    $database = $config['database'];
 
     // Create connection
-    $conn = new mysqli($servername, $username, $password, 'mmcken3sql_d610');
+    $conn = new mysqli($servername, $username, $password, $database);
 
     // Check connection
     if ($conn->connect_error) {
@@ -20,6 +23,10 @@
     echo "<tr id='headers'>";
     while($row = $result->fetch_assoc()) {
         if ($row['Field'] != "user_pass" && $row['Field'] != "admin_rights") {
+            array_push($column_array, $row['Field']);
+            echo "<th>" . $row['Field'] . "</th>";
+        }
+        else if ($admin_rights) {
             array_push($column_array, $row['Field']);
             echo "<th>" . $row['Field'] . "</th>";
         }

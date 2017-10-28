@@ -36,7 +36,7 @@
 
     <body>
         <ul>
-            <li><a href="index.html">Login</a></li>
+            <li><a href="index.php?logout=true">Login</a></li>
             <li><a href="#about">About</a></li>
         </ul>
         <div class="login">
@@ -48,7 +48,7 @@
                 <button type="submit">Login</button>
             </form>
             <div>
-                <p><a href="new_user.html">Not a User?</a></p>
+                <p><a href="new_user.php">Not a User?</a></p>
             </div>
         </div>
     </body>

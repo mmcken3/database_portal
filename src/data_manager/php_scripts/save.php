@@ -1,12 +1,13 @@
 <?php
-    $config = parse_ini_file("../config.ini");
+    $config = parse_ini_file("./data_manager/config.ini");
 
     $servername = $config['servername'];
     $username = $config['username'];
     $password = $config['password'];
+    $database = $config['database'];
 
     // Create connection
-    $conn = new mysqli($servername, $username, $password, 'mmcken3sql_d610');
+    $conn = new mysqli($servername, $username, $password, $database);
 
     // Check connection
     if ($conn->connect_error) {
@@ -26,6 +27,7 @@
             }
         }
     }
+    echo $sql;
     $result = $conn->query($sql);
 
     $conn->close();
