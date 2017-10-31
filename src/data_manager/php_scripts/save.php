@@ -1,10 +1,12 @@
 <?php
-    $config = parse_ini_file("./data_manager/config.ini");
+    $config = parse_ini_file("/Users/Mitchell/Sites/database_portal/src/data_manager/config.ini");
 
     $servername = $config['servername'];
     $username = $config['username'];
     $password = $config['password'];
     $database = $config['database'];
+
+    $admin = $_SESSION["admin"];
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $database);
@@ -28,7 +30,17 @@
         }
     }
     echo $sql;
-    $result = $conn->query($sql);
+    if ($table_name != 'employee') {
+        $result = $conn->query($sql);
+        echo "Saved!";
+    }
+    else if ($admin || $create) {
+        $result = $conn->query($sql);
+        echo "Saved!";
+    }
+    else {
+        echo "<p>You are not admin, so you cannot edit employee tables</p>";
+    }
 
     $conn->close();
 ?>

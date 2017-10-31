@@ -45,11 +45,11 @@
             </div>
             <div>
                 <h3>Password</h3>
-                <input type="text" name="user_pass" placeholder="Password" required="required">
+                <input type="password" name="user_pass" placeholder="Password" required="required">
             </div>
             <div>
                 <h3>Confirm Password</h3>
-                <input type="text" name="user_pass2" placeholder="Confirm Password" required="required">
+                <input type="password" name="user_pass2" placeholder="Confirm Password" required="required">
             </div>
             <button type="submit">Login</button>
         </form>

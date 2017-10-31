@@ -1,16 +1,6 @@
 <?php
     $user_name = trim($_POST['u']);
     $user_pass = trim($_POST['p']);
-    /*
-    if(!$this->CheckLoginInDB($username,$password))
-    {
-        return false;
-    }
-        
-    session_start();
-        
-    $_SESSION[$this->GetLoginSessionVar()] = $username;
-    */
     $config = parse_ini_file("data_manager/config.ini");
     
     $servername = $config['servername'];

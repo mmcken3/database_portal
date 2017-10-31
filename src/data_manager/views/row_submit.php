@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -67,8 +70,6 @@
                 $table_id = $headerList[0];
                 $id_value = $_POST[$headerList[0]];
                 require_once("../php_scripts/delete.php");
-                // put call to delete php script here
-                echo "Deleted!";
             }
         ?>
     </body>

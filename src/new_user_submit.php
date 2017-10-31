@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -44,8 +47,11 @@
                 $values = $values . ",'" . $last_name . "'";
             }
             $table_name = 'employee';
+            $create = true;
             // throw call to request manager here, and it will handle alert or save off this
             require_once("./data_manager/php_scripts/save.php");
+            //echo "<script>alert('Please login with your new account')</script>";
+            //echo "<script>window.open('./index.php', '_self')</script>";
         ?>
     </body>
 

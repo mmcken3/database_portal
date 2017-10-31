@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -37,6 +40,11 @@
 <body>
 
     <body>
+        <?php
+            if ($_SESSION["login"] == "") {
+                echo "<script>window.open('../../index.php', '_self')</script>";
+            }
+        ?>
         <?php 
             $argument1 = $_GET['argument1'];
             if ($argument1 != 'create') {

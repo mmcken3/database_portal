@@ -77,6 +77,11 @@
     </head>
 
     <body>
+        <?php
+            if ($_SESSION["login"] == "") {
+                echo "<script>window.open('../../index.php', '_self')</script>";
+            }
+        ?>
         <?php 
             $table_name = $_GET['table'];
         ?>
