@@ -5,36 +5,7 @@
 <html>
 
 <head>
-    <style>
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #dddddd;
-        }
-        
-        li {
-            float: left;
-        }
-        
-        li a {
-            display: block;
-            padding: 8px;
-        }
-
-        .button {
-            font: bold 11px Arial;
-            text-decoration: none;
-            background-color: #EEEEEE;
-            color: #333333;
-            padding: 2px 6px 2px 6px;
-            border-top: 1px solid #CCCCCC;
-            border-right: 1px solid #333333;
-            border-bottom: 1px solid #333333;
-            border-left: 1px solid #CCCCCC;
-        }
-    </style>
+<link rel="stylesheet" type="text/css" href="../../styles/website.css">
 </head>
 
 <body>

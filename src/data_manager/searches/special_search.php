@@ -3,25 +3,7 @@
 ?>
 <!DOCTYPE html>
 <html>
-<style>
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #dddddd;
-    }
-    
-    li {
-        float: left;
-    }
-    
-    li a {
-        display: block;
-        padding: 8px;
-    }
-</style>
-
+<link rel="stylesheet" type="text/css" href="../../styles/website.css">
 <body>
     <?php 
         $table_name = $_GET['table'];
@@ -40,9 +22,10 @@
         $servername = $config['servername'];
         $username = $config['username'];
         $password = $config['password'];
+        $database = $config['database'];
 
         // Create connection
-        $conn = new mysqli($servername, $username, $password, 'mmcken3sql_d610');
+        $conn = new mysqli($servername, $username, $password, $database);
 
         // Check connection
         if ($conn->connect_error) {
