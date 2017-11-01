@@ -26,9 +26,13 @@
 </head>
 
 <body>
-
+    <?php
+        if ($_SESSION["login"] == "") {
+            echo "<script>window.open('./index.php', '_self')</script>";
+        }
+    ?>
     <ul>
-        <li><a href="home.html">Home</a></li>
+        <li><a href="home.php">Home</a></li>
         <li><a href="profile.html">Profile</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="index.php?logout=true">Logout</a></li>

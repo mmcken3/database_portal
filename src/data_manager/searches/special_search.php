@@ -1,33 +1,19 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
-<style>
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #dddddd;
-    }
-    
-    li {
-        float: left;
-    }
-    
-    li a {
-        display: block;
-        padding: 8px;
-    }
-</style>
-
+<link rel="stylesheet" type="text/css" href="../../styles/website.css">
 <body>
     <?php 
         $table_name = $_GET['table'];
     ?>
     <ul>
-    <li><a href="../../home.html">Home</a></li>
+    <li><a href="../../home.php">Home</a></li>
     <li><a href="../views/profile.php">Profile</a></li>
     <li><a href="#about">About</a></li>
     <li><a <?php echo "href='../tables/table_view.php?table=" . $table_name . "'"?> >Back</a></li>
+    <li><a href="../../index.php?logout=true">Logout</a></li>
     </ul>
     <h1>Search Display</h1>
     <?php
@@ -36,9 +22,10 @@
         $servername = $config['servername'];
         $username = $config['username'];
         $password = $config['password'];
+        $database = $config['database'];
 
         // Create connection
-        $conn = new mysqli($servername, $username, $password, 'mmcken3sql_d610');
+        $conn = new mysqli($servername, $username, $password, $database);
 
         // Check connection
         if ($conn->connect_error) {
