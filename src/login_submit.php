@@ -51,7 +51,7 @@
     else {
         $message = "Username or password incorrect, please retry";
         echo "<script type='text/javascript'>alert('$message');</script>";
-        echo "<a href='index.php?logout=true'>Retry</a></li>";
+        echo "<script>window.open('./index.php?logout=true', '_self')</script>";
     }
 
     $conn->close();

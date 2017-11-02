@@ -66,11 +66,19 @@
                 else {
                     $headers = $headers . $column_array[$i];
                 }
-                if ($column_array[$i] != 'admin_rights' && $column_array[$i] != 'employee_id') {
+                if ($column_array[$i] == 'admin_rights' || $column_array[$i] == 'employee_id') {
                     echo "<div>";
                     echo "<h3>" . $column_array[$i] . "</h3>";
                     echo "<p>";
-                    echo "<input name='" . $column_array[$i] . "' value='" . $row[$column_array[$i]] ."' type='text' size='40' class='textfield'>";                
+                    echo "<input name='" . $column_array[$i] . "' value='" . $row[$column_array[$i]] ."' type='text' size='40' class='textfield' readonly>";                
+                    echo "</p>";
+                    echo "</div>";
+                }
+                else if ($column_array[$i] == "user_pass") {
+                    echo "<div>";
+                    echo "<h3>" . $column_array[$i] . "</h3>";
+                    echo "<p>";
+                    echo "<input name='" . $column_array[$i] . "' value='" . $row[$column_array[$i]] ."' type='password' size='40' class='textfield'>";                
                     echo "</p>";
                     echo "</div>";
                 }
@@ -78,7 +86,7 @@
                     echo "<div>";
                     echo "<h3>" . $column_array[$i] . "</h3>";
                     echo "<p>";
-                    echo "<input name='" . $column_array[$i] . "' value='" . $row[$column_array[$i]] ."' type='text' size='40' class='textfield' readonly>";                
+                    echo "<input name='" . $column_array[$i] . "' value='" . $row[$column_array[$i]] ."' type='text' size='40' class='textfield'>";                
                     echo "</p>";
                     echo "</div>";
                 }

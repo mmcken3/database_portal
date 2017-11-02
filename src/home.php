@@ -38,8 +38,7 @@
         <li><a href="index.php?logout=true">Logout</a></li>
     </ul>
     <h1>Welcome to Homepage</h1>
-    <h2>Database Name</h2>
-    <h4>Edit profile <a href="profile.php">here</a></h4>
+    <h2>Build It Construction</h2>
     <h4>List of Tables To view</h4>
     <p><a href="./data_manager/tables/table_view.php?table=employee">Employees</a></p>
     <p><a href="./data_manager/tables/table_view.php?table=department">Departments</a></p>
