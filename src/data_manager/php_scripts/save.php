@@ -7,6 +7,7 @@
     $database = $config['database'];
 
     $admin = $_SESSION["admin"];
+    $user = $_SESSION["login"];
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $database);
@@ -29,7 +30,6 @@
             }
         }
     }
-    echo $sql;
     if ($table_name != 'employee') {
         $result = $conn->query($sql);
         echo "Saved!";
@@ -37,6 +37,9 @@
     else if ($admin || $create) {
         $result = $conn->query($sql);
         echo "Saved!";
+    }
+    else if ($user == substr($peicesv[1], 1, -1)) {
+        $result = $conn->query($sql);
     }
     else {
         echo "<p>You are not admin, so you cannot edit employee tables</p>";

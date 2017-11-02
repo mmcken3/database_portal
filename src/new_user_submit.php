@@ -5,24 +5,7 @@
 <html>
 
 <head>
-    <style>
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #dddddd;
-        }
-        
-        li {
-            float: left;
-        }
-        
-        li a {
-            display: block;
-            padding: 8px;
-        }
-    </style>
+<link rel="stylesheet" type="text/css" href="./styles/website.css">
 </head>
 
 <body>
@@ -50,8 +33,8 @@
             $create = true;
             // throw call to request manager here, and it will handle alert or save off this
             require_once("./data_manager/php_scripts/save.php");
-            //echo "<script>alert('Please login with your new account')</script>";
-            //echo "<script>window.open('./index.php', '_self')</script>";
+            echo "<script>alert('Please login with your new account')</script>";
+            echo "<script>window.open('./index.php', '_self')</script>";
         ?>
     </body>
 

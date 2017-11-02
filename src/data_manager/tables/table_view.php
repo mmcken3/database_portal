@@ -19,7 +19,7 @@
         ?>
         <ul>
             <li><a href="../../home.php">Home</a></li>
-            <li><a href="../views/profile.php">Profile</a></li>
+            <li><a href="../../profile.php">Profile</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="../../index.php?logout=true">Logout</a></li>
         </ul>
@@ -27,7 +27,7 @@
 
         <h4><a href=<?php echo "../searches/special_search.php?table=" . $table_name;?> class="button">Search Table</a></h4>
 
-        <input type="submit" value="Create" onClick="createFunction();">
+        <input type="submit" value="Create" onClick="createFunction();" class="button">
         <h4></h4>
 
         <?php

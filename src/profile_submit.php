@@ -5,18 +5,16 @@
 <html>
 
 <head>
-<link rel="stylesheet" type="text/css" href="../../styles/website.css">
+<link rel="stylesheet" type="text/css" href="./styles/website.css">
 </head>
 
 <body>
 
     <body>
         <ul>
-            <li><a href="../../home.php">Home</a></li>
-            <li><a href="../../profile.php">Profile</a></li>
+            <li><a href="home.php">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href=<?php echo "../tables/table_view.php?table=" . $_POST['table_name'];?> >Back to Table</a></li>
-            <li><a href="../../index.php?logout=true">Logout</a></li>
+            <li><a href="index.php?logout=true">Logout</a></li>
         </ul>
 
         <?php
@@ -47,12 +45,9 @@
                 }
 
                 // throw call to request manager here, and it will handle alert or save off this
-                require_once("../php_scripts/save.php");
-            }
-            else if ($_REQUEST['delete'] == "Delete") {
-                $table_id = $headerList[0];
-                $id_value = $_POST[$headerList[0]];
-                require_once("../php_scripts/delete.php");
+                require_once("./data_manager/php_scripts/save.php");
+                echo "<script>alert('Saved')</script>";
+                echo "<script>window.open('./home.php', '_self')</script>";
             }
         ?>
     </body>

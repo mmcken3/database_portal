@@ -33,13 +33,13 @@
     ?>
     <ul>
         <li><a href="home.php">Home</a></li>
-        <li><a href="profile.html">Profile</a></li>
+        <li><a href="profile.php">Profile</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="index.php?logout=true">Logout</a></li>
     </ul>
     <h1>Welcome to Homepage</h1>
     <h2>Database Name</h2>
-    <h4>Edit profile <a href="profile.html">here</a></h4>
+    <h4>Edit profile <a href="profile.php">here</a></h4>
     <h4>List of Tables To view</h4>
     <p><a href="./data_manager/tables/table_view.php?table=employee">Employees</a></p>
     <p><a href="./data_manager/tables/table_view.php?table=department">Departments</a></p>
