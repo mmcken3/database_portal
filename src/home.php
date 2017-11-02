@@ -5,24 +5,7 @@
 <html>
 
 <head>
-    <style>
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #dddddd;
-        }
-        
-        li {
-            float: left;
-        }
-        
-        li a {
-            display: block;
-            padding: 8px;
-        }
-    </style>
+<link rel="stylesheet" type="text/css" href="./styles/website.css">
 </head>
 
 <body>

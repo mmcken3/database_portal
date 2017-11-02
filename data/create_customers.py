@@ -1,6 +1,6 @@
 from random import *
 
-download_dir = "locations.csv" #where you want the file to be downloaded to 
+download_dir = "customers.csv" #where you want the file to be downloaded to 
 
 csv = open(download_dir, "w") 
 #"w" indicates that you're writing strings to the file
