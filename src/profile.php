@@ -83,12 +83,14 @@
                     echo "</div>";
                 }
                 else {
-                    echo "<div>";
-                    echo "<h3>" . $column_array[$i] . "</h3>";
-                    echo "<p>";
-                    echo "<input name='" . $column_array[$i] . "' value='" . $row[$column_array[$i]] ."' type='text' size='40' class='textfield'>";                
-                    echo "</p>";
-                    echo "</div>";
+                    if ($column_array[$i] != 'last_updated') {
+                        echo "<div>";
+                        echo "<h3>" . $column_array[$i] . "</h3>";
+                        echo "<p>";
+                        echo "<input name='" . $column_array[$i] . "' value='" . $row[$column_array[$i]] ."' type='text' size='40' class='textfield'>";                
+                        echo "</p>";
+                        echo "</div>";
+                    }
                 }
             }
             echo "<input hidden name='table_name' value='" . $table_name ."' type='text' size='40' class='textfield' readonly>";            

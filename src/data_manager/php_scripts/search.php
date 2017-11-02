@@ -22,13 +22,15 @@
     echo "<table id='table'>";
     echo "<tr id='headers'>";
     while($row = $result->fetch_assoc()) {
-        if ($row['Field'] != "user_pass" && $row['Field'] != "admin_rights") {
-            array_push($column_array, $row['Field']);
-            echo "<th>" . $row['Field'] . "</th>";
-        }
-        else if ($admin_rights) {
-            array_push($column_array, $row['Field']);
-            echo "<th>" . $row['Field'] . "</th>";
+        if ($row['Field'] != 'last_updated') {
+            if ($row['Field'] != "user_pass" && $row['Field'] != "admin_rights") {
+                array_push($column_array, $row['Field']);
+                echo "<th>" . $row['Field'] . "</th>";
+            }
+            else if ($admin_rights) {
+                array_push($column_array, $row['Field']);
+                echo "<th>" . $row['Field'] . "</th>";
+            }
         }
     }
     echo "</tr>";

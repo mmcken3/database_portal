@@ -30,8 +30,6 @@
     <p><a href="./data_manager/tables/table_view.php?table=customer">Customers</a></p>
     <p><a href="./data_manager/tables/table_view.php?table=supplier">Suppliers</a></p>
     <p><a href="./data_manager/tables/table_view.php?table=location">Locations</a></p>
-    <h4>Want to design your own query?</h4>
-    <p><a href="query_custom.html">Click Here</a></p>
 </body>
 
 </html>
