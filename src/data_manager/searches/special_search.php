@@ -40,9 +40,11 @@
         echo "<table id='table'>";
         echo "<tr id='headers'>";
         while($row = $result->fetch_assoc()) {
-            if ($row['Field'] != "user_pass" && $row['Field'] != "admin_rights") {
-                array_push($column_array, $row['Field']);
-                array_push($type_array, $row['Type']);
+            if ($row['Field'] != 'last_updated') {
+                if ($row['Field'] != "user_pass" && $row['Field'] != "admin_rights") {
+                    array_push($column_array, $row['Field']);
+                    array_push($type_array, $row['Type']);
+                }
             }
         }
         echo "</tr>";
