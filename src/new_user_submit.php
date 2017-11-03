@@ -32,7 +32,8 @@
             $table_name = 'employee';
             $create = true;
             // throw call to request manager here, and it will handle alert or save off this
-            require_once("./data_manager/php_scripts/save.php");
+            include("./data_manager/data_manager.php");
+            save($table_name, $fields, $values, $create);
             echo "<script>alert('Please login with your new account')</script>";
             echo "<script>window.open('./index.php', '_self')</script>";
         ?>

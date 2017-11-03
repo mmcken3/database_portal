@@ -46,7 +46,8 @@
                             $table = $table_name;
                             $id_type = $table_name . '_id';
                             echo "<input name='" . $headersList[$i] . "' value='";
-                            include('../php_scripts/get_id.php');
+                            include('../data_manager.php');
+                            get_id($table, $id_type);
                             echo "' type='text' size='40' class='textfield' readonly>";
                         }
                         echo "</p>";

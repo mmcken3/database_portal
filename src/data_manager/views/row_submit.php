@@ -47,12 +47,14 @@
                 }
 
                 // throw call to request manager here, and it will handle alert or save off this
-                require_once("../php_scripts/save.php");
+                include("../data_manager.php");
+                save($table_name, $fields, $values, false);
             }
             else if ($_REQUEST['delete'] == "Delete") {
                 $table_id = $headerList[0];
                 $id_value = $_POST[$headerList[0]];
-                require_once("../php_scripts/delete.php");
+                include("../data_manager.php");
+                delete($table_name, $table_id, $id_value);
             }
         ?>
     </body>

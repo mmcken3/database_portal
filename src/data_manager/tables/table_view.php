@@ -33,7 +33,8 @@
         <?php
             $key = "order by";
             $args = $table_name . "_id";
-            require_once("../php_scripts/search.php");
+            include("../data_manager.php");
+            search($table_name, $key, $args, $order);
         ?>
         <p hidden id="table_name"><?php echo $table_name;?></p>
         <script>

@@ -37,7 +37,8 @@
         $args = $_GET['args'];
         $order = $_GET['order'];
 
-        require_once("../php_scripts/search.php");
+        include("../data_manager.php");
+        search($table_name, $key, $args, $order);
     ?>
     </body>
 

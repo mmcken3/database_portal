@@ -45,7 +45,8 @@
                 }
 
                 // throw call to request manager here, and it will handle alert or save off this
-                require_once("./data_manager/php_scripts/save.php");
+                include("./data_manager/data_manager.php");
+                save($table_name, $fields, $values, false);
                 echo "<script>alert('Saved')</script>";
                 echo "<script>window.open('./home.php', '_self')</script>";
             }
