@@ -18,7 +18,10 @@ proj_location_name_list = ["Douthit Hills", "HWY 123 - HWY 76", "River St. Downt
 						"Hemming Plaza", "N Georgia - Gator Bowl Blvd", "Bank of America FL", "Georgia Tech Student Center",
 						"Administrative Services Clemson", "Jaxonville City Hall"]
 
-proj_customer_name_list = ["Charlottle", "Charleston", "Jaxonville", "Greenville", "Atlanta", "Clemson", "Portland"]
+proj_customer_name_list = ["Bank of Amercia", "Clemson University", "Georgia Tech University", "Furman University",
+						"Heming Plaza Offices", "City of Jaxonville", "Pleasantburg Shopping Center", "Peace Center Offices",
+						"Canadian Government", "Japanese Government", "City of Chicago", "Intel Corp",
+						"IBM Corp", "New York City", "San Francisco"]
 
 columnTitleRow = "project_id, project_name, proj_customer_name, project_type, proj_location_name\n"
 #csv.write(columnTitleRow)
