@@ -29,7 +29,7 @@
             <li><a href="../../home.php">Home</a></li>
             <li><a href="../../profile.php">Profile</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href=<?php echo "../tables/table_view.php?table=" . $table_name;?> >Back</a></li>
+            <li><a href=<?php echo "table_view.php?table=" . $table_name;?> >Back</a></li>
             <li><a href="../../index.php?logout=true">Logout</a></li>
         </ul>
         <h1><?php echo ucfirst($table_name) . " View Page";?></h1>

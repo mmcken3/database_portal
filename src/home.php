@@ -23,13 +23,13 @@
     <h1>Welcome to Homepage</h1>
     <h2>Build It Construction</h2>
     <h4>List of Tables To view</h4>
-    <p><a href="./data_manager/tables/table_view.php?table=employee">Employees</a></p>
-    <p><a href="./data_manager/tables/table_view.php?table=department">Departments</a></p>
-    <p><a href="./data_manager/tables/table_view.php?table=project">Projects</a></p>
-    <p><a href="./data_manager/tables/table_view.php?table=inventory">Inventory</a></p>
-    <p><a href="./data_manager/tables/table_view.php?table=customer">Customers</a></p>
-    <p><a href="./data_manager/tables/table_view.php?table=supplier">Suppliers</a></p>
-    <p><a href="./data_manager/tables/table_view.php?table=location">Locations</a></p>
+    <p><a href="./data_manager/views/table_view.php?table=employee">Employees</a></p>
+    <p><a href="./data_manager/views/table_view.php?table=department">Departments</a></p>
+    <p><a href="./data_manager/views/table_view.php?table=project">Projects</a></p>
+    <p><a href="./data_manager/views/table_view.php?table=inventory">Inventory</a></p>
+    <p><a href="./data_manager/views/table_view.php?table=customer">Customers</a></p>
+    <p><a href="./data_manager/views/table_view.php?table=supplier">Suppliers</a></p>
+    <p><a href="./data_manager/views/table_view.php?table=location">Locations</a></p>
 </body>
 
 </html>

@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS employee (
 	user_address VARCHAR(40),
 	emp_project_name VARCHAR(40),
 	emp_department_name VARCHAR(40),
-	last_updated TIMESTAMP NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+	last_updated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	PRIMARY KEY (user_name, employee_id)
 );
 
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS supplier (
 	product_type VARCHAR(40),
 	contact_name VARCHAR(40),
 	phone_number VARCHAR(40),
-	last_updated TIMESTAMP NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+	last_updated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	PRIMARY KEY (supplier_id, supplier_name)
 );
 
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS inventory (
 	number_of INT NOT NULL,
 	inv_supplier_name VARCHAR(40),
 	inv_location_name VARCHAR(40),
-	last_updated TIMESTAMP NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+	last_updated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	PRIMARY KEY (inventory_id, inventory_type)
 );
 
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS location (
 	city VARCHAR(40),
 	location_state VARCHAR(40),
 	zip INT,
-	last_updated TIMESTAMP NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+	last_updated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	PRIMARY KEY (location_id, location_name)
 );
 
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS project (
 	project_customer_name VARCHAR(40),
 	project_type VARCHAR(40),
 	project_location_name VARCHAR(40),
-	last_updated TIMESTAMP NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+	last_updated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	PRIMARY KEY (project_name, project_id)
 );
 
@@ -90,7 +90,7 @@ CREATE TABLE IF NOT EXISTS customer (
 	contact_name VARCHAR(40),
 	contact_number VARCHAR(40),
 	customer_location_name VARCHAR(40),
-	last_updated TIMESTAMP NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+	last_updated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	PRIMARY KEY (customer_id, customer_name)
 );
 
@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS department (
 	department_id INT NOT NULL UNIQUE AUTO_INCREMENT,
 	department_name VARCHAR(40) UNIQUE,
 	department_manager_name VARCHAR(40),
-	last_updated TIMESTAMP NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+	last_updated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	PRIMARY KEY (department_id, department_name)
 );
 -- ------------------------------------------
