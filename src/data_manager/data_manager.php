@@ -58,6 +58,11 @@ function save($table_name, $fields, $values, $create) {
             }
         }
     }
+    if (!checkRules($table_name, $peicesf, $peicesv)){
+        echo "<p></p>";
+        echo "<h4>Not saved!</h4>";
+        return;
+    }
     if ($table_name != 'employee') {
         $result = $conn->query($sql);
         echo "Saved!";
@@ -74,6 +79,37 @@ function save($table_name, $fields, $values, $create) {
     }
     
     $conn->close();
+}
+
+function checkRules($table_name, $fields, $values) {
+    if ($table_name == 'department') {
+        $department_manager_name = $values[2];
+        if ($department_manager_name == 'null'){
+            echo "<h4>Department's must have a manager!</h4>";
+            return false;
+        }
+        return true;
+    }
+    else if ($table_name == 'project') {
+        $project_location_name = $values[4];
+        if ($project_location_name == 'null'){
+            echo "<h4>Project's must have a location!</h4>";
+            return false;
+        }
+        return true;
+    }
+    else if ($table_name == 'inventory') {
+        $inventory_location_name = $values[5];
+        $inventory_supplier = $values[4];
+        if ($inventory_location_name == 'null' || $inventory_supplier == 'null'){
+            echo "<h4>Inventory must have a location and supplier!</h4>";
+            return false;
+        }
+        return true;
+    }
+    else {
+        return true;
+    }
 }
 
 function delete($table_name, $table_id, $id_value){
