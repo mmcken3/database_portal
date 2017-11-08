@@ -25,6 +25,20 @@ function connect(){
     return $conn;
 }
 
+function backup() {
+    $login_user =  $_SESSION["login"];
+    $admin_rights = $_SESSION["admin"];
+
+    $config = parse_ini_file("config.ini");
+    
+    $servername = $config['servername'];
+    $username = $config['username'];
+    $password = $config['password'];
+    $database = $config['database'];
+
+    exec("mysqldump --user=" . $username . " --password=" . $password . " --host=" . $servername . " " . $database . " > ./backup_database.sql");
+}
+
 function save($table_name, $fields, $values, $create) {
     $login_user =  $_SESSION["login"];
     $admin_rights = $_SESSION["admin"];

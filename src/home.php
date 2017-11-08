@@ -31,5 +31,20 @@
     <p><a href="./data_manager/views/table_view.php?table=supplier">Suppliers</a></p>
     <p><a href="./data_manager/views/table_view.php?table=location">Locations</a></p>
 </body>
+<?php
+    if ($_SESSION["admin"]) {
+        echo "<h4>Back up the database by clicking below!</h4>";
+        echo "<input type='submit' value='Create' onClick='backupDB();'>";
+        if ($_GET["backup"] == "true") {
+            include("./data_manager/data_manager.php");
+            backup();
+        }
+    }
+?>
+<script>
+    function backupDB() {
+        window.open("home.php?backup=true", "_self")
+    };
+</script>
 
 </html>
