@@ -9,7 +9,7 @@
 
     <body>
         <ul>
-            <li><a href="index.html?logout=true">Login</a></li>
+            <li><a href="./index.php?logout=true">Login</a></li>
             <li><a href="#about">About</a></li>
         </ul>
         <h1>New User Account Creation</h1>

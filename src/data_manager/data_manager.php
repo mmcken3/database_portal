@@ -3,9 +3,6 @@
 ?>
 <?php
 
-//search($table_name, $key, $args, $order);
-//get_id($table, $id_type);
-
 function connect(){
     $config = parse_ini_file("config.ini");
     

@@ -16,7 +16,9 @@
             $user_pass = $_POST['user_pass'];
             $user_pass2 = $_POST['user_pass2'];
             if ($user_pass != $user_pass2) {
-                //alert and re ask
+                echo "<script>alert('Entered passwords do not match, please retry.')</script>";
+                echo "<script>window.open('./new_user.php', '_self')</script>";
+                return;
             }
             $values = "'" . $user_name . "','" . $user_pass . "'";
             if (isset($_POST['first_name'])) {
