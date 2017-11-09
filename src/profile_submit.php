@@ -11,11 +11,13 @@
 <body>
 
     <body>
-        <ul>
-            <li><a href="home.php">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="index.php?logout=true">Logout</a></li>
-        </ul>
+        <nav>
+            <ul>
+                <li><a href="home.php">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="index.php?logout=true">Logout</a></li>
+            </ul>
+        </nav>
 
         <?php
             $table_name = $_POST['table_name'];

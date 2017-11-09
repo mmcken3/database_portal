@@ -18,10 +18,12 @@
     </head>
 
     <body>
-        <ul>
-            <li><a href="index.php?logout=true">Login</a></li>
-            <li><a href="#about">About</a></li>
-        </ul>
+        <nav>
+            <ul>
+                <li><a href="index.php?logout=true">Login</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
         <div class="login">
             <h1>Built It Construction</h1>
             <h1>Login</h1>

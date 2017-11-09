@@ -8,10 +8,12 @@
 <body>
 
     <body>
-        <ul>
-            <li><a href="./index.php?logout=true">Login</a></li>
-            <li><a href="#about">About</a></li>
-        </ul>
+        <nav>
+            <ul>
+                <li><a href="./index.php?logout=true">Login</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
         <h1>New User Account Creation</h1>
         <form action="new_user_submit.php" method="post">
             <div>

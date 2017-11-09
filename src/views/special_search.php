@@ -8,13 +8,15 @@
     <?php 
         $table_name = $_GET['table'];
     ?>
-    <ul>
-    <li><a href="../home.php">Home</a></li>
-    <li><a href="../profile.php">Profile</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a <?php echo "href='table_view.php?table=" . $table_name . "'"?> >Back</a></li>
-    <li><a href="../index.php?logout=true">Logout</a></li>
-    </ul>
+    <nav>
+        <ul>
+            <li><a href="../home.php">Home</a></li>
+            <li><a href="../profile.php">Profile</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a <?php echo "href='table_view.php?table=" . $table_name . "'"?> >Back</a></li>
+            <li><a href="../index.php?logout=true">Logout</a></li>
+        </ul>
+    </nav>
     <h1>Search Display</h1>
     <?php
         $config = parse_ini_file("../data_manager/config.ini");
@@ -96,7 +98,7 @@
     <br style="clear: both;">
     </fieldset>
     <p hidden id="table_name"><?php echo $table_name;?></p>
-    <input type="submit" value="Search" onClick="searchFunction();">
+    <input type="submit" value="Search" class="btn blue" onClick="searchFunction();">
     <div>
         <script>
             function searchFunction() {

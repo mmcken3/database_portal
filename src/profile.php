@@ -18,11 +18,13 @@
                 echo "<script>window.open('../../index.php', '_self')</script>";
             }
         ?>
-        <ul>
-            <li><a href="home.php">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="index.php?logout=true">Logout</a></li>
-        </ul>
+        <nav>
+            <ul>
+                <li><a href="home.php">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="index.php?logout=true">Logout</a></li>
+            </ul>
+        </nav>
         <h1>Profile Edit Page</h1>
         <?php
             $login_user =  $_SESSION["login"];
@@ -98,7 +100,7 @@
             echo "<input hidden name='profile_edit' value='profile_edit' type='text' size='40' class='textfield' readonly>";                        
         ?>
         <p></p>
-        <input type="submit" name="save" value="Save" class="button"/>
+        <input type="submit" name="save" value="Save" class="btn blue"/>
         <?php
             echo "</form>";
         ?>
