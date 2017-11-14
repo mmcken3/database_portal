@@ -27,8 +27,7 @@
         </nav>
         <h1><?php echo ucfirst($table_name);?></h1>
 
-        <h4><a href=<?php echo "special_search.php?table=" . $table_name;?> class="btn blue">Search Table</a></h4>
-
+        <input type="submit" id=<?php echo $table_name?> value="Search" onClick="searchOnClick(this.id)" class="btn blue">
         <input type="submit" value="Create" onClick="createFunction();" class="btn blue">
         <h4></h4>
 
@@ -73,6 +72,11 @@
                 }
                 window.open("row_view.php?argument1=" + data + "&table=" + table_name + "&headers=" + headData, "_self")
             };
+        </script>
+        <script>
+            function searchOnClick(table) {
+                window.open("special_search.php?table=" + table, "_self")
+            }
         </script>
     </body>
 
