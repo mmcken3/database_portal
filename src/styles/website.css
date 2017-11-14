@@ -166,7 +166,8 @@ fieldset {
     margin: 50px 0;
 }
 
-#row_edit input[type="text"] {
+#row_edit input[type="text"],
+input[type="password"] {
     width: 96%;
     border: 1px solid #CCC;
     background: #FFF;

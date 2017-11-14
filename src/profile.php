@@ -10,7 +10,7 @@
 
 <body>
 
-    <body>
+    <body style='background-color: rgb(163, 219, 217)'>
         <?php
             $user_name = $_SESSION["login"];
             $table_name = "employee";
@@ -60,7 +60,9 @@
             }
 
             $headers = "";
-            echo "<form action='profile_submit.php' method='post'>";
+            echo "<div class='container' style='padding-top:10px'>";
+            echo "<form id='row_edit' action='profile_submit.php' method='post'>";
+            echo "<h1 style='color: #D9853B'>Profile</h1>";
             for ($i = 0; $i < sizeof($column_array); $i++){
                 if ($i != sizeof($column_array) - 1){
                     $headers = $headers . $column_array[$i] . ",";
@@ -103,6 +105,7 @@
         <input type="submit" name="save" value="Save" class="btn blue"/>
         <?php
             echo "</form>";
+            echo "</div>";
         ?>
     </body>
 
