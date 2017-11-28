@@ -20,35 +20,43 @@ first_name = ["Jack", "Alex", "Alexa", "Katie", "Catherine", "Kyle", "Ross", "Pe
 last_name = ["Smith", "Doe", "Simpson", "Williams", "Powell", "Watson", "Carr", "Brady", "Adams",
 			"Shoemaker", "Washington", "Schmitt", "Durham", "Drohan", "Schwartz", "Cavanos", "Manning"]
 
-columnTitleRow = "user_name, first_name, last_name, admin_rights, user_pass, phone, user_address, emp_project_name, emp_deartment_name\n"
-#csv.write(columnTitleRow)
+streetname = ["Main", "Scott", "South Park", "West Broad", "East Bay", "Market", "Smith Ct.", "Westcott Cr.",
+                "King", "St. Peter"]
+location_state_list = ["Charleston SC", "Charlotte NC", "Jaxonville FL", "Atlanta GA", "Portland OR", 
+                        "Birmingham AL", "Culpepper VA", "New York City NY", "Boston MA", "Knoxville TN", 
+                        "Charleston WV", "East Lansing MI"]
+
+columnTitleRow = "user_name, first_name, last_name, admin_rights, user_pass, phone, user_address, emp_project_name, emp_department_name\n"
 
 index = 1
 while index < 100:
-    toWrite = "" + str(index) + ", "
+    toWrite = ""
 
     #make this be first 3 of first name and first 3 of last        
-    toWrite = toWrite + "'userName', "
+    toWrite = toWrite + "userName" + str(index) + ", "
 
     first_name_num = randint(0, len(first_name) - 1)
     last_name_num = randint(0, len(last_name) - 1)
-    toWrite = toWrite + "'" + first_name[first_name_num] + "', '" + last_name[last_name_num] + "', "
+    toWrite = toWrite + "" + first_name[first_name_num] + ", " + last_name[last_name_num] + ","
 
-    toWrite = toWrite + "0, "
-    toWrite = toWrite + "'password', "
+    toWrite = toWrite + "0,"
+    toWrite = toWrite + "password,"
 
     contact_num_1 = randint(0, 999)
     contact_num_2 = randint(0, 999)
     contact_num_3 = randint(0, 9999)
-    toWrite = toWrite + "'" + str(contact_num_1) + "-" + str(contact_num_2) + "-" + str(contact_num_3) + "', "
+    toWrite = toWrite + "" + str(contact_num_1) + "-" + str(contact_num_2) + "-" + str(contact_num_3) + ","
 
-    toWrite = toWrite + "'my address is wrong', "
+    address = "" + str(randint(0, 600))
+    address = address + " " + streetname[randint(0, len(streetname) - 1)]
+    address = address + " " + location_state_list[randint(0, len(location_state_list) - 1)]
+    toWrite = toWrite + address + ","
 
     project_name_num = randint(0, len(project_name_list) - 1)
-    toWrite = toWrite + "'" + project_name_list[project_name_num] + "', "
+    toWrite = toWrite + "" + project_name_list[project_name_num] + ","
 
     department_name_num = randint(0, len(department_name_list) - 1)
-    toWrite = toWrite + "'" + department_name_list[department_name_num] + "'\n"
+    toWrite = toWrite + "" + department_name_list[department_name_num] + "\n"
 
     csv.write(toWrite)
     index = index + 1

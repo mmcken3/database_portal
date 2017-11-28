@@ -30,22 +30,22 @@ columnTitleRow = "inventory_type, category, number_of, inv_supplier_name, inv_lo
 
 index = 1
 while index < 400:
-    toWrite = "" + str(index) + ", "
+    toWrite = ""
 
     inv_type_num = randint(0, len(inv_type_list) - 1)
-    toWrite = toWrite + "'" + inv_type_list[inv_type_num] + " - " + str(randint(0, 400)) + "', "
+    toWrite = toWrite + "" + inv_type_list[inv_type_num] + " - " + str(randint(0, 400)) + ","
 
     category_num = randint(0, len(category_list) - 1)
-    toWrite = toWrite + "'" + category_list[category_num] + "', "
+    toWrite = toWrite + "" + category_list[category_num] + ","
 
     number_of = randint(0, 10000)
-    toWrite = toWrite + "'" + str(number_of) + "', "
+    toWrite = toWrite + "" + str(number_of) + ","
 
     supplier_name_num = randint(0, len(inv_supplier_list) - 1)
-    toWrite = toWrite + "'" + inv_supplier_list[supplier_name_num] + "', "
+    toWrite = toWrite + "" + inv_supplier_list[supplier_name_num] + "\n"
 
-    location_name_num = randint(0, len(inv_location_name_list) - 1)
-    toWrite = toWrite + "'" + inv_location_name_list[location_name_num] + " - " + str(randint(0, 100)) + "'\n"
+    #location_name_num = randint(0, len(inv_location_name_list) - 1)
+    #toWrite = toWrite + "" + inv_location_name_list[location_name_num] + " - " + str(randint(0, 100)) + "\n"
 
     csv.write(toWrite)
     index = index + 1

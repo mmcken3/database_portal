@@ -19,31 +19,31 @@ contact_number_list = ["261-613-1235", "135-134-6575", "166-123-7223", "3275 N P
 						"3300 Pointsett Hwy", "307-339 E 4th St", "410 Mint St", "2121 Beatties Ford Rd",
 						"N Hogan St", "2-98 N Georgia St", "50 N Laura St", "350 Ferst Dr NW"]
 
-customer_location_name_list = ["Douthit Hills", "HWY 123 - HWY 76", "River St. Downtown", "Pleasantburg Shopping"
+customer_location_name_list = ["Douthit Hills", "HWY 123 - HWY 76", "River St. Downtown", "Pleasantburg Shopping",
 						"Furman Student Center", "Epicentre", "Mint Street Parking Deck", "Lincoln Heights",
 						"Hemming Plaza", "N Georgia - Gator Bowl Blvd", "Bank of America FL", "Georgia Tech Student Center",
 						"Administrative Services Clemson", "Jaxonville City Hall"]
 
 columnTitleRow = "customer_name, contact_name, contact_number, customer_location_name\n"
-#csv.write(columnTitleRow)
+csv.write(columnTitleRow)
 
 index = 1
 for name in customer_name_list:
-	toWrite = "" + str(index) + ", "
+	toWrite = ""
 		
-	toWrite = toWrite + "'" + name + "',"
+	toWrite = toWrite + "" + name + ","
 
 	first_name_num = randint(0, len(first_name) - 1)
 	last_name_num = randint(0, len(last_name) - 1)
-	toWrite = toWrite + "'" + first_name[first_name_num] + " " + last_name[last_name_num] + "', "
+	toWrite = toWrite + "" + first_name[first_name_num] + " " + last_name[last_name_num] + ","
 
 	contact_num_1 = randint(0, 999)
 	contact_num_2 = randint(0, 999)
 	contact_num_3 = randint(0, 9999)
-	toWrite = toWrite + "'" + str(contact_num_1) + "-" + str(contact_num_2) + "-" + str(contact_num_3) + "', "
+	toWrite = toWrite + "" + str(contact_num_1) + "-" + str(contact_num_2) + "-" + str(contact_num_3) + "\n"
 
-	location_name_num = randint(0, len(customer_location_name_list) - 1)
-	toWrite = toWrite + "'" + customer_location_name_list[location_name_num] + " - " + str(randint(0, 100)) + "'\n"
+	#location_name_num = randint(0, len(customer_location_name_list) - 1)
+	#toWrite = toWrite + "" + customer_location_name_list[location_name_num] + " - " + str(randint(0, 50)) + "\n"
 
 	csv.write(toWrite)
 	index = index + 1

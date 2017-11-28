@@ -28,24 +28,24 @@ columnTitleRow = "supplier_name, supplier_location_name, product_type, contact_n
 
 index = 1
 for name in supplier_name_list:
-	toWrite = "" + str(index) + ", "
+	toWrite = ""
 		
-	toWrite = toWrite + "'" + name + "',"
+	toWrite = toWrite + "" + name + ","
 
-	location_name_num = randint(0, len(supplier_location_name_list) - 1)
-	toWrite = toWrite + "'" + supplier_location_name_list[location_name_num] + " - " + str(randint(0, 100)) + "', "
+	#location_name_num = randint(0, len(supplier_location_name_list) - 1)
+	#toWrite = toWrite + "" + supplier_location_name_list[location_name_num] + " - " + str(randint(0, 100)) + ","
 
 	product_type_num = randint(0, len(product_type_list) - 1)
-	toWrite = toWrite + "'" + product_type_list[product_type_num] + "', "
+	toWrite = toWrite + "" + product_type_list[product_type_num] + ","
 
 	first_name_num = randint(0, len(first_name) - 1)
 	last_name_num = randint(0, len(last_name) - 1)
-	toWrite = toWrite + "'" + first_name[first_name_num] + " " + last_name[last_name_num] + "', "
+	toWrite = toWrite + "" + first_name[first_name_num] + " " + last_name[last_name_num] + ","
 
 	contact_num_1 = randint(0, 999)
 	contact_num_2 = randint(0, 999)
 	contact_num_3 = randint(0, 9999)
-	toWrite = toWrite + "'" + str(contact_num_1) + "-" + str(contact_num_2) + "-" + str(contact_num_3) + "'\n"
+	toWrite = toWrite + "" + str(contact_num_1) + "-" + str(contact_num_2) + "-" + str(contact_num_3) + "\n"
 
 	csv.write(toWrite)
 	index = index + 1

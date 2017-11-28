@@ -24,22 +24,22 @@ proj_customer_name_list = ["Bank of Amercia", "Clemson University", "Georgia Tec
 						"IBM Corp", "New York City", "San Francisco"]
 
 columnTitleRow = "project_id, project_name, proj_customer_name, project_type, proj_location_name\n"
-#csv.write(columnTitleRow)
+csv.write(columnTitleRow)
 
 i = 0
 for name in project_name_list:
-    toWrite = "" + str(i+1) + ", "
+    toWrite = ""
 
-    toWrite = toWrite + "'" + name + "',"
+    toWrite = toWrite + "" + name + ","
         
     proj_customer_name_num = randint(0, len(proj_customer_name_list) - 1)
-    toWrite = toWrite + "'" + proj_customer_name_list[proj_customer_name_num] + "', "
+    toWrite = toWrite + "" + proj_customer_name_list[proj_customer_name_num] + ","
 
     project_type_num = randint(0, len(project_type_list) - 1)
-    toWrite = toWrite + "'" + project_type_list[project_type_num] + "', "
+    toWrite = toWrite + "" + project_type_list[project_type_num] + "\n"
 
-    location_name_num = randint(0, len(proj_location_name_list) - 1)
-    toWrite = toWrite + "'" + proj_location_name_list[location_name_num] + " - " + str(randint(0, 100)) + "'\n"
+    #location_name_num = randint(0, len(proj_location_name_list) - 1)
+    #toWrite = toWrite + "" + proj_location_name_list[location_name_num] + " - " + str(randint(0, 100)) + "\n"
 
     csv.write(toWrite)
     i = i + 1

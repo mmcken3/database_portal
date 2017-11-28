@@ -23,13 +23,13 @@ columnTitleRow = "department_name, department_manager_name\n"
 
 index = 1
 for name in department_name_list:
-	toWrite = "" + str(index) + ", "
+	toWrite = ""
 		
-	toWrite = toWrite + "'" + name + "',"
+	toWrite = toWrite + "" + name + "\n"
 
-	first_name_num = randint(0, len(first_name) - 1)
-	last_name_num = randint(0, len(last_name) - 1)
-	toWrite = toWrite + "'" + first_name[first_name_num] + " " + last_name[last_name_num] + "'\n"
+	#first_name_num = randint(0, len(first_name) - 1)
+	#last_name_num = randint(0, len(last_name) - 1)
+	#toWrite = toWrite + "" + first_name[first_name_num] + " " + last_name[last_name_num] + "\n"
 
 	csv.write(toWrite)
 	index = index + 1
