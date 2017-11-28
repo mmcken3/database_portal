@@ -67,7 +67,7 @@
                             else if ($headersList[$i] == 'admin_rights'){
                                 echo '0';
                             }
-                            if ($headersList[$i] == 'user_name') {
+                            if ($headersList[$i] == 'user_name' || $headersList[$i] == 'last_updated') {
                                 echo "' type='text' size='40' class='textfield' readonly>";
                             }
                             else if ($headersList[$i] == 'user_pass') {

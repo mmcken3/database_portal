@@ -22,6 +22,35 @@ function connect(){
     return $conn;
 }
 
+function checkTime($current, $table, $id_val) {
+    $conn = connect();
+
+    $sql = "SELECT last_updated FROM " . $table . " WHERE " . $table . "_id = " . $id_val;
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            $found_time = $row["last_updated"];
+        }
+        // Free result set
+        mysqli_free_result($result);
+    }
+    $current = substr($current, 1, -1);
+
+    $format = "Y/m/d H:i:s";
+
+    $current = strtotime(explode(" ", $current)[1]);
+    $found_time = strtotime(explode(" ", $found_time)[1]);
+
+    if ($found_time > $current){
+        return false;
+    }
+
+    $conn->close();
+    return true;
+}
+
 function backup() {
     $login_user =  $_SESSION["login"];
     $admin_rights = $_SESSION["admin"];
@@ -40,8 +69,19 @@ function save($table_name, $fields, $values, $create) {
     $login_user =  $_SESSION["login"];
     $admin_rights = $_SESSION["admin"];
 
+    $last_time = substr($values, strrpos($values, ',') + 1);
+    $id_val = substr($values, 0, strpos($values, ','));
+    if (!checkTime($last_time, $table_name, $id_val)){
+        echo "Updated failed because the row has been updated since you viewed it.";
+        echo "<br>";
+        echo "Please go back to view the updated values.";
+        return;
+    }
     $conn = connect();
-    
+
+    $fields = substr($fields, 0, strrpos($fields, ','));
+    $values = substr($values, 0, strrpos($values, ','));
+
     $sql = "insert into " . $table_name . " (" . $fields . ") values (" . $values . ") on duplicate key update ";
     if ($fields != "") {
         $peicesf = explode(",", $fields);
@@ -184,6 +224,10 @@ function search($table_name, $key, $args, $order){
                 }
             }
         }
+        else {
+            array_push($column_array, $row['Field']);
+            echo "<th hidden>" . $row['Field'] . "</th>";
+        }
     }
     echo "</tr>";
 
@@ -208,7 +252,7 @@ function search($table_name, $key, $args, $order){
         while($row = $result->fetch_assoc()) {
             echo "<tr id='row'>";
                 for ($i = 0; $i < sizeof($column_array); $i++) {
-                    if ($column_array[$i] == 'user_pass'){
+                    if ($column_array[$i] == 'user_pass' || $column_array[$i] == 'last_updated'){
                         echo "<td hidden>" . $row[$column_array[$i]] . "</td>";
                     }
                     else {
