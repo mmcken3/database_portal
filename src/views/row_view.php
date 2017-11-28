@@ -67,7 +67,15 @@
                             else if ($headersList[$i] == 'admin_rights'){
                                 echo '0';
                             }
-                            echo "' type='text' size='40' class='textfield'>";
+                            if ($headersList[$i] == 'user_name') {
+                                echo "' type='text' size='40' class='textfield' readonly>";
+                            }
+                            else if ($headersList[$i] == 'user_pass') {
+                                echo "' type='password' size='40' class='textfield'>";
+                            }
+                            else {
+                                echo "' type='text' size='40' class='textfield'>";
+                            }
                             echo "</p>";
                         }
                     }

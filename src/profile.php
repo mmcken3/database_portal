@@ -70,7 +70,7 @@
                 else {
                     $headers = $headers . $column_array[$i];
                 }
-                if ($column_array[$i] == 'admin_rights' || $column_array[$i] == 'employee_id') {
+                if ($column_array[$i] == 'admin_rights' || $column_array[$i] == 'employee_id' || $column_array[$i] == 'user_name') {
                     echo "<div>";
                     echo "<h3>" . $column_array[$i] . "</h3>";
                     echo "<p>";

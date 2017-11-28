@@ -174,8 +174,14 @@ function search($table_name, $key, $args, $order){
                 echo "<th>" . $row['Field'] . "</th>";
             }
             else if ($admin_rights) {
-                array_push($column_array, $row['Field']);
-                echo "<th>" . $row['Field'] . "</th>";
+                if ($row['Field'] != "user_pass"){
+                    array_push($column_array, $row['Field']);
+                    echo "<th>" . $row['Field'] . "</th>";
+                }
+                else {
+                    array_push($column_array, $row['Field']);
+                    echo "<th hidden>" . $row['Field'] . "</th>";
+                }
             }
         }
     }
@@ -202,7 +208,12 @@ function search($table_name, $key, $args, $order){
         while($row = $result->fetch_assoc()) {
             echo "<tr id='row'>";
                 for ($i = 0; $i < sizeof($column_array); $i++) {
-                    echo "<td>" . $row[$column_array[$i]] . "</td>";
+                    if ($column_array[$i] == 'user_pass'){
+                        echo "<td hidden>" . $row[$column_array[$i]] . "</td>";
+                    }
+                    else {
+                        echo "<td>" . $row[$column_array[$i]] . "</td>";
+                    }
                 }
             echo "</tr>";
         }
