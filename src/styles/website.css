@@ -1,3 +1,8 @@
+body {
+    background-color: #ECECEA;
+    font-family: 'Roboto', sans-serif;
+}
+
 #table {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
@@ -22,8 +27,20 @@
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #4CAF50;
+    background-color: #558C89;
     color: white;
+}
+
+#table tr:nth-child(odd) {
+    background-color: white;
+}
+
+#table tr:nth-child(even) {
+    background-color: rgb(163, 219, 217);
+}
+
+#table tr:hover {
+    background-color: #74AFAD;
 }
 
 ul {
@@ -47,26 +64,113 @@ td {
     cursor: pointer;
 }
 
-tr:nth-child(odd) {
-    background-color: #EAF2D3;
+
+/* button div */
+
+#buttons {
+    padding-top: 50px;
+    text-align: center;
 }
 
-tr:nth-child(even) {
-    background-color: #A7C942;
-}
 
-tr:hover {
-    background-color: #89ae37;
-}
+/* start da css for da buttons */
 
-.button {
-    font: bold 11px Arial;
+.btn {
+    border-radius: 5px;
+    padding: 8px 10px;
+    font-size: 12px;
     text-decoration: none;
-    background-color: #EEEEEE;
-    color: #333333;
-    padding: 2px 6px 2px 6px;
-    border-top: 1px solid #CCCCCC;
-    border-right: 1px solid #333333;
-    border-bottom: 1px solid #333333;
-    border-left: 1px solid #CCCCCC;
+    margin: 10px;
+    color: #fff;
+    position: relative;
+    display: inline-block;
+}
+
+.btn:active {
+    transform: translate(0px, 5px);
+    -webkit-transform: translate(0px, 5px);
+    box-shadow: 0px 1px 0px 0px;
+}
+
+.blue {
+    background-color: #558C89;
+    box-shadow: 0px 5px 0px 0px rgb(51, 85, 83);
+}
+
+.blue:hover {
+    background-color: rgb(163, 219, 217);
+}
+
+nav {
+    float: right;
+}
+
+nav ul {
+    margin: 0;
+    padding-right: 15px;
+    background: #D9853B;
+    list-style: none;
+}
+
+nav li {
+    display: inline-block;
+    margin-left: 70px;
+    padding-top: 23px;
+    position: relative;
+}
+
+nav a {
+    color: #000;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #000;
+}
+
+nav a::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background-color: #000;
+    position: absolute;
+    top: 0;
+    width: 0%;
+    transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+    width: 100%;
+}
+
+.container {
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+fieldset {
+    border: medium none !important;
+    margin: 0 0 10px;
+    min-width: 100%;
+    padding: 0;
+    width: 100%;
+}
+
+#row_edit {
+    background: #F9F9F9;
+    padding: 25px;
+    margin: 50px 0;
+}
+
+#row_edit input[type="text"],
+input[type="password"] {
+    width: 96%;
+    border: 1px solid #CCC;
+    background: #FFF;
+    margin: 0 0 5px;
+    padding: 10px;
 }

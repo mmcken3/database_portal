@@ -11,13 +11,15 @@
 <body>
 
     <body>
-        <ul>
-            <li><a href="../home.php">Home</a></li>
-            <li><a href="../profile.php">Profile</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href=<?php echo "table_view.php?table=" . $_POST['table_name'];?> >Back to Table</a></li>
-            <li><a href="../index.php?logout=true">Logout</a></li>
-        </ul>
+        <nav>
+            <ul>
+                <li><a href="../home.php">Home</a></li>
+                <li><a href="../profile.php">Profile</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href=<?php echo "table_view.php?table=" . $_POST['table_name'];?> >Back to Table</a></li>
+                <li><a href="../index.php?logout=true">Logout</a></li>
+            </ul>
+        </nav>
 
         <?php
             $table_name = $_POST['table_name'];

@@ -17,17 +17,18 @@
         <?php 
             $table_name = $_GET['table'];
         ?>
-        <ul>
-            <li><a href="../home.php">Home</a></li>
-            <li><a href="../profile.php">Profile</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="../index.php?logout=true">Logout</a></li>
-        </ul>
+        <nav>
+            <ul>
+                <li><a href="../home.php">Home</a></li>
+                <li><a href="../profile.php">Profile</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="../index.php?logout=true">Logout</a></li>
+            </ul>
+        </nav>
         <h1><?php echo ucfirst($table_name);?></h1>
 
-        <h4><a href=<?php echo "special_search.php?table=" . $table_name;?> class="button">Search Table</a></h4>
-
-        <input type="submit" value="Create" onClick="createFunction();" class="button">
+        <input type="submit" id=<?php echo $table_name?> value="Search" onClick="searchOnClick(this.id)" class="btn blue">
+        <input type="submit" value="Create" onClick="createFunction();" class="btn blue">
         <h4></h4>
 
         <?php
@@ -71,6 +72,11 @@
                 }
                 window.open("row_view.php?argument1=" + data + "&table=" + table_name + "&headers=" + headData, "_self")
             };
+        </script>
+        <script>
+            function searchOnClick(table) {
+                window.open("special_search.php?table=" + table, "_self")
+            }
         </script>
     </body>
 

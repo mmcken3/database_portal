@@ -10,7 +10,7 @@
 
 <body>
 
-    <body>
+    <body style='background-color: rgb(163, 219, 217)'>
         <?php
             $user_name = $_SESSION["login"];
             $table_name = "employee";
@@ -18,11 +18,13 @@
                 echo "<script>window.open('../../index.php', '_self')</script>";
             }
         ?>
-        <ul>
-            <li><a href="home.php">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="index.php?logout=true">Logout</a></li>
-        </ul>
+        <nav>
+            <ul>
+                <li><a href="home.php">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="index.php?logout=true">Logout</a></li>
+            </ul>
+        </nav>
         <h1>Profile Edit Page</h1>
         <?php
             $login_user =  $_SESSION["login"];
@@ -58,7 +60,9 @@
             }
 
             $headers = "";
-            echo "<form action='profile_submit.php' method='post'>";
+            echo "<div class='container' style='padding-top:10px'>";
+            echo "<form id='row_edit' action='profile_submit.php' method='post'>";
+            echo "<h1 style='color: #D9853B'>Profile</h1>";
             for ($i = 0; $i < sizeof($column_array); $i++){
                 if ($i != sizeof($column_array) - 1){
                     $headers = $headers . $column_array[$i] . ",";
@@ -98,9 +102,10 @@
             echo "<input hidden name='profile_edit' value='profile_edit' type='text' size='40' class='textfield' readonly>";                        
         ?>
         <p></p>
-        <input type="submit" name="save" value="Save" class="button"/>
+        <input type="submit" name="save" value="Save" class="btn blue"/>
         <?php
             echo "</form>";
+            echo "</div>";
         ?>
     </body>
 
