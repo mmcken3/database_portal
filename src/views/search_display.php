@@ -14,7 +14,7 @@
         <ul>
             <li><a href="../home.php">Home</a></li>
             <li><a href="../profile.php">Profile</a></li>
-            <li><a href="#about">About</a></li>
+            <li><a href="../about.php">About</a></li>
             <li><a href="../index.php?logout=true">Logout</a></li>
         </ul>
     </nav>

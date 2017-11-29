@@ -22,7 +22,7 @@
         <nav>
             <ul>
                 <li><a href="index.php?logout=true">Login</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="about.php">About</a></li>
             </ul>
         </nav>
         <div class="login">
