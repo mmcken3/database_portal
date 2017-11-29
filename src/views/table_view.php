@@ -37,7 +37,7 @@
             $key = "order by";
             $args = $table_name . "_id";
             include("../data_manager/data_manager.php");
-            search($table_name, $key, $args, $order);
+            search($table_name, $key, $args, "");
         ?>
         <p hidden id="table_name"><?php echo $table_name;?></p>
         <script>
