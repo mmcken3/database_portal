@@ -74,7 +74,7 @@
                             else if ($headersList[$i] == 'admin_rights'){ 
                                 echo '0'; // Display defaunt for admin on create
                             }
-                            if ($headersList[$i] == 'user_name' || $headersList[$i] == 'last_updated') {
+                            if (($headersList[$i] == 'user_name' && $argument1 != 'create') || $headersList[$i] == 'last_updated') {
                                 echo "' type='text' size='40' class='textfield' readonly>"; // These do not need to change. 
                             }
                             else if ($headersList[$i] == 'user_pass') { // ensure password is password type
