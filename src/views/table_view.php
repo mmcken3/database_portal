@@ -12,6 +12,7 @@
 
     <body>
         <?php
+            // sends the user to login if they are not already.
             if ($_SESSION["login"] == "") {
                 echo "<script>window.open('../index.php', '_self')</script>";
             }
@@ -34,9 +35,12 @@
         <h4></h4>
 
         <?php
+            // Sets up a base set of search variables.
             $key = "order by";
-            $args = $table_name . "_id";
+            $args = $table_name . "_id"; // search based off table given in url args
             include("../data_manager/data_manager.php");
+
+            // call the search from the data manager
             search($table_name, $key, $args, "");
         ?>
         <p hidden id="table_name"><?php echo $table_name;?></p>
@@ -54,6 +58,8 @@
             var table_name = document.getElementById("table_name").innerHTML
             var table = document.getElementsByTagName("table")[0];
             var tbody = table.getElementsByTagName("tbody")[0];
+            // On row click, put headers into comma delimited list and values into a comma
+            // delimited list, then put them in url args for the row view
             tbody.onclick = function(e) {
                 e = e || window.event;
                 var data = [];
@@ -72,6 +78,7 @@
                     for (var i = 0; i < headers.length; i++) {
                         headData.push(headers[i].innerHTML);
                 }
+                // Open row view with the found values from the table
                 window.open("row_view.php?argument1=" + data + "&table=" + table_name + "&headers=" + headData, "_self")
             };
         </script>

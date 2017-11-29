@@ -20,13 +20,14 @@
             }
         ?>
         <?php 
+            // Checks to see if the user has selected this from table or if they pressed the create button
             $argument1 = $_GET['argument1'];
             if ($argument1 != 'create') {
                 $peices = explode(",", $argument1);
             }
-            $table_name = $_GET['table'];
-            $headers = $_GET['headers'];
-            $headersList = explode(",", $headers);
+            $table_name = $_GET['table']; // table name
+            $headers = $_GET['headers']; // list of column headers displayed in table
+            $headersList = explode(",", $headers); // breaks headers from a list into arrays
         ?>
         <nav>
             <ul>
@@ -41,12 +42,15 @@
         <div class="container" style="padding-top:10px">
             <form id="row_edit" action="row_submit.php" method="post">
                 <?php 
+                    // Prints out information from table in an edit form format
                     echo "<h1 style='color: #D9853B'>" . ucfirst($table_name) . " Edit</h1>";
                     echo "<fieldset>";
+                    // iterates through each header to print out the header and the value found for it
                     for ($i = 0; $i < count($headersList); $i++){
                         if ($i == 0) {
                             echo "<h3>" . $headersList[$i] . "</h3>";
                             echo "<p>";
+                            // If create we need to get what the next ID if from data manager
                             if ($argument1 != 'create') {
                                 echo "<input name='" . $headersList[$i] . "' value='" . $peices[$i] ."' type='text' size='40' class='textfield' readonly>";
                             }
@@ -60,20 +64,20 @@
                             }
                             echo "</p>";
                         }
-                        else {
+                        else { // Other wise display data found in the table
                             echo "<h3>" . $headersList[$i] . "</h3>";
                             echo "<p>";
                             echo "<input name='" . $headersList[$i] . "' value='";
                             if ($argument1 != 'create') {
                                 echo $peices[$i];
                             }
-                            else if ($headersList[$i] == 'admin_rights'){
-                                echo '0';
+                            else if ($headersList[$i] == 'admin_rights'){ 
+                                echo '0'; // Display defaunt for admin on create
                             }
                             if ($headersList[$i] == 'user_name' || $headersList[$i] == 'last_updated') {
-                                echo "' type='text' size='40' class='textfield' readonly>";
+                                echo "' type='text' size='40' class='textfield' readonly>"; // These do not need to change. 
                             }
-                            else if ($headersList[$i] == 'user_pass') {
+                            else if ($headersList[$i] == 'user_pass') { // ensure password is password type
                                 echo "' type='password' size='40' class='textfield'>";
                             }
                             else {
@@ -88,6 +92,7 @@
                 ?>
                 <input type="submit" name="save" value="Save" class="btn blue"/>
                 <?php
+                    // Cannot delete on create so do not display button then.
                     if ($argument1 != 'create') {
                         echo "<input type='submit' name='delete' value='Delete' class='btn blue'/>";
                     }
