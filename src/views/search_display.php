@@ -19,8 +19,14 @@
         </ul>
     </nav>
     <h1>Advanced Search Display</h1>
-
     <?php
+        // ensures that the user is logged in to view. 
+        if ($_SESSION["login"] == "") {
+            echo "<script>window.open('../index.php', '_self')</script>";
+        }
+    ?>
+    <?php
+        // This will simply connect to the dataase, and then run a search specified in the arguments.
         $config = parse_ini_file("../data_manager/config.ini");
 
         $servername = $config['servername'];
@@ -36,11 +42,13 @@
             die("Connection failed: " . $conn->connect_error);
         } 
 
+        // These variables specifiy the search and are laid out in the URL arguments.
         $table_name = $_GET['table'];
         $key = $_GET['key'];
         $args = $_GET['args'];
         $order = $_GET['order'];
 
+        // Run the search from the data manager.
         include("../data_manager/data_manager.php");
         search($table_name, $key, $args, $order);
     ?>

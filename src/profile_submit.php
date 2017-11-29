@@ -1,5 +1,7 @@
 <?php
-    session_start();
+    if(!isset($_SESSION)) {
+        session_start();
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,12 +22,17 @@
         </nav>
 
         <?php
-            $table_name = $_POST['table_name'];
-            $fields = $_POST['headers'];
-            $headerList = explode(",", $fields);
+            // Parses the field values set up in the POST form. 
+            $table_name = $_POST['table_name']; // name of table.
+            $fields = $_POST['headers']; // list of field headers from edit page.
+            $headerList = explode(",", $fields); // turns comma list of headers into an array. 
+            
+            // Runs this branch if the user pressed save.
             if ($_REQUEST['save'] == "Save") {
                 $headersCount = count($headerList);
                 $values = "";
+
+                // Iterate through the headers and values and build out a list of header=value, ...
                 for ($i = 0; $i < $headersCount; $i++){
                     $fieldValue = $_POST[$headerList[$i]];
                     if ($i != ($headersCount - 1)) {
@@ -36,7 +43,7 @@
                             $values = $values . "'" . $fieldValue . "',";
                         }
                     }
-                    else {
+                    else { // on last one no need for trailing comma.
                         if ($fieldValue == '') {
                             $values = $values . "null";
                         }
@@ -46,9 +53,11 @@
                     }
                 }
 
-                // throw call to request manager here, and it will handle alert or save off this
+                // call save from the data manager. it will check last updated time. 
                 include("./data_manager/data_manager.php");
                 save($table_name, $fields, $values, false);
+
+                // Alert the user upon success and redirect them to the home page.
                 echo "<script>alert('Saved')</script>";
                 echo "<script>window.open('./home.php', '_self')</script>";
             }

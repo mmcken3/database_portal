@@ -14,6 +14,7 @@
 
     <body style="background-color: rgb(163, 219, 217)">
         <?php
+            // Ensure that the user is logged in, if not if will send them back to login page. 
             if ($_SESSION["login"] == "") {
                 echo "<script>window.open('../index.php', '_self')</script>";
             }

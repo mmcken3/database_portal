@@ -30,6 +30,9 @@ function connect(){
 // This is the request manager function that is needed for updating databae. It will check to see if
 // the values of the row of data have been updated since the user last viewed it. If they have
 // been changed this will return false, if they have not then it returns true.
+// current = the original last_updated time
+// table = name of table to search for new last_updated time in
+// id_val = the id of the row to find the last_updated time in
 function checkTime($current, $table, $id_val) {
     $conn = connect(); // connect
 
@@ -81,6 +84,10 @@ function backup() {
 // the last_updated value from the viewed row in order to call checkTime before running the save. If
 // checkTime is fasle then this will request the user to re check the data before saving. 
 // It only edits yourself as an employee unless you are an admin, and in that case you can edit anything.
+// table_name = name of table to save to
+// fields = field headers with data to update
+// values = values to update for each field
+// create = this is set if this is a new creation and not a row update
 function save($table_name, $fields, $values, $create) {
     $login_user =  $_SESSION["login"];
     $admin_rights = $_SESSION["admin"];
@@ -144,6 +151,9 @@ function save($table_name, $fields, $values, $create) {
 // This will check a few rules to ensure that data has been entered and that users are
 // following rules such as departments having managers, projects having locations,
 // and inventory having suppliers. 
+// table_name = table the fields and values are for
+// fields = name of column headers with data
+// values = value of data for each field
 function checkRules($table_name, $fields, $values) {
     // if its department, it checks to be sure manager value is there.
     if ($table_name == 'department') {
@@ -179,6 +189,9 @@ function checkRules($table_name, $fields, $values) {
 // The delete function will take a table, and id number and then delete that row
 // from the table. It will only delete from the employee table if the logged in user
 // is an admin account.
+// table_name = name of table to delete from
+// table_id = header of id key from the specified table
+// id_value = value of key of a row to delete
 function delete($table_name, $table_id, $id_value){
     $login_user =  $_SESSION["login"];
     $admin = $_SESSION["admin"];
@@ -206,6 +219,8 @@ function delete($table_name, $table_id, $id_value){
 
 // This will get the next up id. It does this by getting the last ID, and then looks
 // for the next one in the count.
+// table = name of table to search for an id in.
+// id_type = header of id key from the specified table
 function get_id($table, $id_type) {
     $login_user =  $_SESSION["login"];
     $admin_rights = $_SESSION["admin"];
@@ -233,6 +248,10 @@ function get_id($table, $id_type) {
 // This will search the database for a table, with the specified arguments passed in
 // that are comma delimted and then will follow the specified order in the the order
 // variable. The fields are limited in display if a user is not an admin.
+// table_name = name of table to search in
+// key = usually equal to where
+// args = this is a comma list of header=value, header1=value1, ...
+// order = order by (asc, desc) and then name of column header, or it is blank
 function search($table_name, $key, $args, $order){
     $login_user =  $_SESSION["login"];
     $admin_rights = $_SESSION["admin"];

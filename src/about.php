@@ -10,7 +10,11 @@
 <link rel="stylesheet" type="text/css" href="./styles/website.css">
 <link rel="stylesheet" type="text/css" href="./styles/login_form.css">
 </head>
-
+<?php
+    if ($_SESSION["login"] == "") {
+        echo "<script>window.open('index.php', '_self')</script>";
+    }
+?>
 <body>
     </head>
 

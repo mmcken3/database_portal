@@ -9,6 +9,10 @@
 <body>
     <?php 
         $table_name = $_GET['table'];
+        // Ensure that the user is logged in, if not if will send them back to login page. 
+        if ($_SESSION["login"] == "") {
+            echo "<script>window.open('../index.php', '_self')</script>";
+        }
     ?>
     <nav>
         <ul>
@@ -21,6 +25,10 @@
     </nav>
     <h1>Search Display</h1>
     <?php
+    // This search page is modeled similarly to phpMyAdmin search, user can search of any field, with a list
+    // of different comparisons and order by any field.
+
+        // Connect to database off configuration. 
         $config = parse_ini_file("../data_manager/config.ini");
 
         $servername = $config['servername'];
@@ -36,15 +44,18 @@
             die("Connection failed: " . $conn->connect_error);
         }
 
+        // Grabs all of the columns from the database, and then sets them for users to search for. 
         $sql = "SHOW COLUMNS FROM " . $table_name;
         $result = $conn->query($sql);
         $column_array = array();
         $type_array = array();
 
+        // Configure the table the users can edit for seaching. 
         echo "<table id='table'>";
         echo "<tr id='headers'>";
         while($row = $result->fetch_assoc()) {
             if ($row['Field'] != 'last_updated') {
+                // Do not let users search by admin rights or passwords
                 if ($row['Field'] != "user_pass" && $row['Field'] != "admin_rights") {
                     array_push($column_array, $row['Field']);
                     array_push($type_array, $row['Type']);
@@ -66,6 +77,7 @@
         </thead>
         <tbody>
             <?php
+                // This prints out all of the comparison operators and variable entry fields in the table for each column shown. 
                 for ($i = 0; $i < count($column_array); $i++){
                     echo "<tr class='noclick even'>";
                     echo "<th name='columnList[" . $i . "]'>" . $column_array[$i] . "</th>";
@@ -103,6 +115,7 @@
     <input type="submit" value="Search" class="btn blue" onClick="searchFunction();">
     <div>
         <script>
+            // Pulls all the column headers, comparisons, and entered values from the table. If anything is entered.
             function searchFunction() {
                 var args = "args="
                 var criteria = document.querySelectorAll("select[name^='criteriaColumnOperators[']")
@@ -117,6 +130,7 @@
                     }
                 }
 
+                // Gets the order value from the table if its selected. 
                 var $order = "order=";
                 var orderBy = document.getElementById("orderBySelect").value;
                 if (orderBy != "--nil--") {
@@ -130,6 +144,9 @@
                     $order = $order + "," + orderBy;
                 }
                 $key = "key=" + "where";
+
+                // Opens up the search display with the table name, list of arguments to search by, where key word, and an
+                // order if one was selected above. 
                 var $table_name = document.getElementById("table_name").innerHTML
                 window.open("search_display.php?table=" + $table_name + "&" + args + "&" + $key + "&" + $order, "_self")
             }

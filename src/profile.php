@@ -17,7 +17,7 @@
             $user_name = $_SESSION["login"];
             $table_name = "employee";
             if ($_SESSION["login"] == "") {
-                echo "<script>window.open('../../index.php', '_self')</script>";
+                echo "<script>window.open('index.php', '_self')</script>";
             }
         ?>
         <nav>
