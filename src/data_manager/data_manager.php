@@ -34,32 +34,34 @@ function connect(){
 // table = name of table to search for new last_updated time in
 // id_val = the id of the row to find the last_updated time in
 function checkTime($current, $table, $id_val) {
-    $conn = connect(); // connect
+    if ($current != 'null'){
+        $conn = connect(); // connect
 
-    // Gets the value of last updated from the most current state in the table.
-    $sql = "SELECT last_updated FROM " . $table . " WHERE " . $table . "_id = " . $id_val;
-    $result = $conn->query($sql);
+        // Gets the value of last updated from the most current state in the table.
+        $sql = "SELECT last_updated FROM " . $table . " WHERE " . $table . "_id = " . $id_val;
+        $result = $conn->query($sql);
 
-    if ($result->num_rows > 0) {
-        // output data of each row
-        while($row = $result->fetch_assoc()) {
-            $found_time = $row["last_updated"];
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                $found_time = $row["last_updated"];
+            }
+            // Free result set
+            mysqli_free_result($result);
         }
-        // Free result set
-        mysqli_free_result($result);
+        $current = substr($current, 1, -1); // removes the ' from the last updated string
+
+        // converts the strings for each time into unix timestamps
+        $current = strtotime(explode(" ", $current)[1]);
+        $found_time = strtotime(explode(" ", $found_time)[1]);
+
+        // returns false if the passed timestamps are old
+        if ($found_time > $current){
+            return false;
+        }
+
+        $conn->close();
     }
-    $current = substr($current, 1, -1); // removes the ' from the last updated string
-
-    // converts the strings for each time into unix timestamps
-    $current = strtotime(explode(" ", $current)[1]);
-    $found_time = strtotime(explode(" ", $found_time)[1]);
-
-    // returns false if the passed timestamps are old
-    if ($found_time > $current){
-        return false;
-    }
-
-    $conn->close();
     return true;
 }
 
@@ -265,6 +267,7 @@ function search($table_name, $key, $args, $order){
 
     // Sets up a table and headers, showing admin and password info only to admins.
     echo "<table id='table'>";
+    echo "<thead>";
     echo "<tr id='headers'>";
     while($row = $result->fetch_assoc()) {
         if ($row['Field'] != 'last_updated') {
@@ -288,8 +291,8 @@ function search($table_name, $key, $args, $order){
             echo "<th hidden>" . $row['Field'] . "</th>";
         }
     }
-    echo "</tr>";
-
+    echo "</tr></thead>";
+    echo "<tbody>";
     // Seperates the arguments on commas to get each specifc part of data.
     $peices = explode(",", $args);
     $myArgs = "";
@@ -326,6 +329,7 @@ function search($table_name, $key, $args, $order){
                 }
             echo "</tr>";
         }
+        echo "</tbody>";
         echo "</table>";
         // Free result set
         mysqli_free_result($result);

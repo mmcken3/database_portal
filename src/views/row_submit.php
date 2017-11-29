@@ -30,7 +30,7 @@
             $headerList = explode(",", $fields); // turns comma list of headers into an array. 
 
             // Runs this branch if the user pressed save.
-            if ($_REQUEST['save'] == "Save") {
+            if (isset($_REQUEST['save']) && $_REQUEST['save'] == "Save") {
                 $headersCount = count($headerList);
                 $values = "";
 
