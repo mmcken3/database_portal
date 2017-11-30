@@ -10,7 +10,7 @@ location_name_list = ["Douthit Hills", "HWY 123 - HWY 76", "River St. Downtown",
 						"Hemming Plaza", "N Georgia - Gator Bowl Blvd", "Bank of America FL", "Georgia Tech Student Center",
 						"Administrative Services Clemson", "Jaxonville City Hall"]
 
-location_type_list = ["type1", "type2", "type3", "type4", "type5"]
+location_type_list = ["warehouse", "project", "building", "office", "other"]
 
 location_address_list = ["Oak Terrace", "1303 Tiger Blvd", "536-598 River Street", "3275 N Pleasantburg Dr",
 						"3300 Pointsett Hwy", "307-339 E 4th St", "410 Mint St", "2121 Beatties Ford Rd",

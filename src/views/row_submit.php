@@ -35,7 +35,7 @@
                 $headersCount = count($headerList);
                 $values = "";
 
-                if ($_POST[$table_name . '_id'] == '1') {
+                if ($_POST[$table_name . '_id'] == '1' && $table_name == 'employee') {
                     echo "No changes can be made to the main admin account.";
                     return;
                 }

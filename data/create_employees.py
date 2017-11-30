@@ -42,9 +42,9 @@ while index < 100:
     toWrite = toWrite + "0,"
     toWrite = toWrite + "password,"
 
-    contact_num_1 = randint(0, 999)
-    contact_num_2 = randint(0, 999)
-    contact_num_3 = randint(0, 9999)
+    contact_num_1 = randint(100, 999)
+    contact_num_2 = randint(100, 999)
+    contact_num_3 = randint(1000, 9999)
     toWrite = toWrite + "" + str(contact_num_1) + "-" + str(contact_num_2) + "-" + str(contact_num_3) + ","
 
     address = "" + str(randint(0, 600))

@@ -37,9 +37,9 @@ for name in customer_name_list:
 	last_name_num = randint(0, len(last_name) - 1)
 	toWrite = toWrite + "" + first_name[first_name_num] + " " + last_name[last_name_num] + ","
 
-	contact_num_1 = randint(0, 999)
-	contact_num_2 = randint(0, 999)
-	contact_num_3 = randint(0, 9999)
+	contact_num_1 = randint(100, 999)
+	contact_num_2 = randint(100, 999)
+	contact_num_3 = randint(1000, 9999)
 	toWrite = toWrite + "" + str(contact_num_1) + "-" + str(contact_num_2) + "-" + str(contact_num_3) + "\n"
 
 	#location_name_num = randint(0, len(customer_location_name_list) - 1)
