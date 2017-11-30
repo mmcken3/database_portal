@@ -137,13 +137,15 @@ function save($table_name, $fields, $values, $create) {
     }
     $conn = connect(); // connect
 
-    // removes the timestamps from the values because we want that to auto update itself on save.
-    $fields = substr($fields, 0, strrpos($fields, ','));
-    $values = substr($values, 0, strrpos($values, ','));
+    if ($create != "new"){
+        // removes the timestamps from the values because we want that to auto update itself on save.
+        $fields = substr($fields, 0, strrpos($fields, ','));
+        $values = substr($values, 0, strrpos($values, ','));
+    }
 
     // inserts into the table, at the fields, with the values, and updates in duplicate case.
     $sql = "insert into " . $table_name . " (" . $fields . ") values (" . $values . ") on duplicate key update ";
-    
+
     // rotates through the fields and values to set the on duplicate update part of the sql statement.
     if ($fields != "") {
         $peicesf = explode(",", $fields);
