@@ -43,7 +43,11 @@
 
             // Call save for the data manager with the new users information. 
             include("./data_manager/data_manager.php");
-            save($table_name, $fields, $values, $create);
+            $works = save($table_name, $fields, $values, $create);
+            if (!$works) {
+                echo "<script>alert('Failed to save new user, probably a duplicate user name.')</script>";
+                echo "<script>window.open('new_user.php', '_self')</script>";
+            }
 
             // Request the user to login with their new account and redirect to login page.
             echo "<script>alert('Please login with your new account')</script>";

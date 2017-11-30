@@ -27,6 +27,7 @@
             // Parses the field values set up in the POST form. 
             $table_name = $_POST['table_name'];     // name of table.
             $fields = $_POST['headers']; // list of field headers from edit page.
+            $create = $_POST['create']; // whether this is a creation or not
             $headerList = explode(",", $fields); // turns comma list of headers into an array. 
 
             // Runs this branch if the user pressed save.
@@ -62,7 +63,7 @@
 
                 // call save from the data manager. it will check last updated time. 
                 include("../data_manager/data_manager.php");
-                save($table_name, $fields, $values, false);
+                save($table_name, $fields, $values, $create);
             }
             else if ($_REQUEST['delete'] == "Delete") {  // takes this branch if user presses delete.
                 // first header and value in the list is the ID value.

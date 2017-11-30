@@ -88,6 +88,7 @@
                     }
                     echo "<input hidden name='table_name' value='" . $table_name ."' type='text' size='40' class='textfield' readonly>";
                     echo "<input hidden name='headers' value='" . $headers ."' type='text' size='40' class='textfield' readonly>";
+                    echo "<input hidden name='create' value='" . $argument1 ."' type='text' size='40' class='textfield' readonly>";
                     echo "</fieldset>";
                 ?>
                 <input type="submit" name="save" value="Save" class="btn blue"/>

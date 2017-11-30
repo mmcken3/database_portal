@@ -81,6 +81,25 @@ function backup() {
     exec("mysqldump --user=" . $username . " --password=" . $password . " --host=" . $servername . " " . $database . " > ./backup_database.sql");
 }
 
+// This will check to see if the user_name already exists in the database.
+function checkUserName($user_name) {
+    $conn = connect(); // connect
+
+    // Gets only the id number of the highest id number in table.
+    $sql = "SELECT user_name FROM employee WHERE user_name = " . $user_name;
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // Free result set
+        mysqli_free_result($result);
+        $conn->close();
+        return true;    // data was found for this user name
+    } else {
+        $conn->close();
+        return false;  // data was not found for this user name
+    }
+}
+
 // Saves the passed data to the database based off the passed in table, field names, and values.
 // Based on create it knows whether to update or fully insert new data. Along with that it pulls out
 // the last_updated value from the viewed row in order to call checkTime before running the save. If
@@ -91,6 +110,20 @@ function backup() {
 // values = values to update for each field
 // create = this is set if this is a new creation and not a row update
 function save($table_name, $fields, $values, $create) {
+    if ($create == "new") {
+        $user_name_found = explode(',', $values)[0];
+        if (checkUserName($user_name_found)){
+            return false;
+        }
+    }
+    else if ($create == "create") {
+        $user_name_found = explode(',', $values)[1];
+        if (checkUserName($user_name_found)){
+            echo "Duplicate User Name, chose a different User Name to Create!";
+            return false;
+        }
+    }
+
     $login_user =  $_SESSION["login"];
     $admin_rights = $_SESSION["admin"];
 
@@ -100,7 +133,7 @@ function save($table_name, $fields, $values, $create) {
         echo "Updated failed because the row has been updated since you viewed it.";
         echo "<br>";
         echo "Please go back to view the updated values.";
-        return;
+        return false;
     }
     $conn = connect(); // connect
 
@@ -137,16 +170,17 @@ function save($table_name, $fields, $values, $create) {
         if ($result != 1) {
             echo "Error saving, please try to change the data again";
             $conn->close();
-            return;
+            return false;
         }
         echo "Saved!";
     }
     else if ($admin_rights || $create) {
         $result = $conn->query($sql);
         if ($result != 1) {
+            echo "<script>alert('Error saving, please try to change the data again. It could be duplicate user name.')</script>";
             echo "Error saving, please try to change the data again";
             $conn->close();
-            return;
+            return false;
         }
         echo "Saved!";
     }
@@ -155,7 +189,7 @@ function save($table_name, $fields, $values, $create) {
         if ($result != 1) {
             echo "Error saving, please try to change the data again";
             $conn->close();
-            return;
+            return false;
         }
     }
     else {
@@ -163,6 +197,7 @@ function save($table_name, $fields, $values, $create) {
     }
     
     $conn->close();
+    return true;
 }
 
 // This will check a few rules to ensure that data has been entered and that users are
