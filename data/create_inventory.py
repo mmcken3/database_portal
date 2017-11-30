@@ -42,10 +42,10 @@ while index < 400:
     toWrite = toWrite + "" + str(number_of) + ","
 
     supplier_name_num = randint(0, len(inv_supplier_list) - 1)
-    toWrite = toWrite + "" + inv_supplier_list[supplier_name_num] + "\n"
+    toWrite = toWrite + "" + inv_supplier_list[supplier_name_num] + ","
 
-    #location_name_num = randint(0, len(inv_location_name_list) - 1)
-    #toWrite = toWrite + "" + inv_location_name_list[location_name_num] + " - " + str(randint(0, 100)) + "\n"
+    location_name_num = randint(0, len(inv_location_name_list) - 1)
+    toWrite = toWrite + "" + inv_location_name_list[location_name_num] + " - " + str(randint(0, 100)) + "\n"
 
     csv.write(toWrite)
     index = index + 1

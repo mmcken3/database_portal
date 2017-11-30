@@ -30,19 +30,19 @@ while index < 75:
 	toWrite = ""
 
 	location_name_num = randint(0, len(location_name_list) - 1)
-	toWrite = toWrite + "" + location_name_list[location_name_num] + " - " + str(index) + ", "
+	toWrite = toWrite + "" + location_name_list[location_name_num] + " - " + str(index) + ","
 
 	location_type_num = randint(0, len(location_type_list) - 1)
-	toWrite = toWrite + "" + location_type_list[location_type_num] + ", "
+	toWrite = toWrite + "" + location_type_list[location_type_num] + ","
 
 	location_address_num = randint(0, len(location_address_list) - 1)
-	toWrite = toWrite + "" + location_address_list[location_address_num] + ", "
+	toWrite = toWrite + "" + location_address_list[location_address_num] + ","
 
 	location_city_num = randint(0, len(location_city_list) - 1)
-	toWrite = toWrite + "" + location_city_list[location_city_num] + ", "
+	toWrite = toWrite + "" + location_city_list[location_city_num] + ","
 
 	location_state_num = randint(0, len(location_state_list) - 1)
-	toWrite = toWrite + "" + location_state_list[location_state_num] + ", "
+	toWrite = toWrite + "" + location_state_list[location_state_num] + ","
 
 	location_zip_num = randint(0, len(location_zip_list) - 1)
 	toWrite = toWrite + location_zip_list[location_zip_num] + "\n"

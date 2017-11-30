@@ -32,8 +32,8 @@ for name in supplier_name_list:
 		
 	toWrite = toWrite + "" + name + ","
 
-	#location_name_num = randint(0, len(supplier_location_name_list) - 1)
-	#toWrite = toWrite + "" + supplier_location_name_list[location_name_num] + " - " + str(randint(0, 100)) + ","
+	location_name_num = randint(0, len(supplier_location_name_list) - 1)
+	toWrite = toWrite + "" + supplier_location_name_list[location_name_num] + " - " + str(randint(0, 100)) + ","
 
 	product_type_num = randint(0, len(product_type_list) - 1)
 	toWrite = toWrite + "" + product_type_list[product_type_num] + ","

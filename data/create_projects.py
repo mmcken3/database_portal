@@ -36,10 +36,10 @@ for name in project_name_list:
     toWrite = toWrite + "" + proj_customer_name_list[proj_customer_name_num] + ","
 
     project_type_num = randint(0, len(project_type_list) - 1)
-    toWrite = toWrite + "" + project_type_list[project_type_num] + "\n"
+    toWrite = toWrite + "" + project_type_list[project_type_num] + ","
 
-    #location_name_num = randint(0, len(proj_location_name_list) - 1)
-    #toWrite = toWrite + "" + proj_location_name_list[location_name_num] + " - " + str(randint(0, 100)) + "\n"
+    location_name_num = randint(0, len(proj_location_name_list) - 1)
+    toWrite = toWrite + "" + proj_location_name_list[location_name_num] + " - " + str(randint(0, 100)) + "\n"
 
     csv.write(toWrite)
     i = i + 1

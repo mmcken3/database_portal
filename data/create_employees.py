@@ -33,11 +33,11 @@ while index < 100:
     toWrite = ""
 
     #make this be first 3 of first name and first 3 of last        
-    toWrite = toWrite + "userName" + str(index) + ", "
+    toWrite = toWrite + "userName" + str(index) + ","
 
     first_name_num = randint(0, len(first_name) - 1)
     last_name_num = randint(0, len(last_name) - 1)
-    toWrite = toWrite + "" + first_name[first_name_num] + ", " + last_name[last_name_num] + ","
+    toWrite = toWrite + "" + first_name[first_name_num] + "," + last_name[last_name_num] + ","
 
     toWrite = toWrite + "0,"
     toWrite = toWrite + "password,"
