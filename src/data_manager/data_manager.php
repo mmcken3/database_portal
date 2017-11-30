@@ -134,14 +134,29 @@ function save($table_name, $fields, $values, $create) {
     // does not update the employee table unless the user is admin.
     if ($table_name != 'employee') {
         $result = $conn->query($sql);
+        if ($result != 1) {
+            echo "Error saving, please try to change the data again";
+            $conn->close();
+            return;
+        }
         echo "Saved!";
     }
     else if ($admin_rights || $create) {
         $result = $conn->query($sql);
+        if ($result != 1) {
+            echo "Error saving, please try to change the data again";
+            $conn->close();
+            return;
+        }
         echo "Saved!";
     }
     else if ($login_user == substr($peicesv[1], 1, -1)) {
         $result = $conn->query($sql);
+        if ($result != 1) {
+            echo "Error saving, please try to change the data again";
+            $conn->close();
+            return;
+        }
     }
     else {
         echo "<p>You are not admin, so you cannot edit employee tables</p>";
@@ -208,9 +223,14 @@ function delete($table_name, $table_id, $id_value){
         echo "Deleted!";
     } 
     else if ($admin) {
-        $sql = "delete from " . $table_name . " where " . $table_id . "=" . $id_value;
-        $result = $conn->query($sql);
-        echo "Deleted!";
+        if ($id_value != 1) {
+            $sql = "delete from " . $table_name . " where " . $table_id . "=" . $id_value;
+            $result = $conn->query($sql);
+            echo "Deleted!";
+        }
+        else {
+            echo "You cannot delete the main admin account!";
+        }
     }
     else {
         echo "<p>You are not admin, so you cannot edit employee tables</p>";

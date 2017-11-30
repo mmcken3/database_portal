@@ -14,7 +14,7 @@ category_list = ["nails", "steel", "flooring", "lumber", "tile", "hand tools", "
 
 inv_supplier_list = ["Lowes", "Home Depot", "Concrete Supply Co", "Gateway Supply Co",
 						"Builders First Source", "Blue Linx Corp", "HD Supply White Cap", "ABC Supply Co",
-						"Pro Build Holdings", "Roofing Supply Group", "L&W Supply", "84 Lumber",
+						"Pro Build Holdings", "Roofing Supply Group", "L AND W Supply", "84 Lumber",
 						"Beacon Roofing Supply", "Allied Building Products", "Yella Wood"]
 
 inv_location_name_list = ["Douthit Hills", "HWY 123 - HWY 76", "River St. Downtown", "Pleasantburg Shopping"
