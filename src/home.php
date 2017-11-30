@@ -40,7 +40,7 @@
 <?php
     if ($_SESSION["admin"]) {
         echo "<h4>Back up the database by clicking below!</h4>";
-        echo "<input type='submit' value='Create' onClick='backupDB();'>";
+        echo "<input type='submit' value='Backup' onClick='backupDB();'>";
         if (isset($_GET['backup']) && $_GET["backup"] == "true") {
             include("./data_manager/data_manager.php");
             backup();
