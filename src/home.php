@@ -43,7 +43,7 @@
         echo "<input type='submit' value='Backup' onClick='backupDB();'>";
         if (isset($_GET['backup']) && $_GET["backup"] == "true") {
             include("./data_manager/data_manager.php");
-            backup();
+            backup_tables();
         }
     }
 ?>

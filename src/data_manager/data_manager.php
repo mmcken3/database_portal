@@ -67,18 +67,64 @@ function checkTime($current, $table, $id_val) {
 
 // This function will backup the database to the system by taking town a full sql dump of
 // the schema and data. 
-function backup() {
-    $login_user =  $_SESSION["login"];
-    $admin_rights = $_SESSION["admin"];
-
-    $config = parse_ini_file("config.ini");
+/* backup the db OR just a table */
+function backup_tables($tables = '*') {
+    $conn = connect(); // connect to the DB.
+	
+	//get all of the tables
+	if($tables == '*')
+	{
+		$tables = array();
+		$result = $conn->query('SHOW TABLES');
+		while($row = $result->fetch_row())
+		{
+			$tables[] = $row[0];
+		}
+	}
+	else
+	{
+		$tables = is_array($tables) ? $tables : explode(',',$tables);
+	}
+	
+	//cycle through
+	foreach($tables as $table)
+	{
+		$result = $conn->query('SELECT * FROM '.$table);
+		$num_fields = $result->field_count;
+		
+		$return.= 'DROP TABLE '.$table.';';
+        $row2 = $conn->query('SHOW CREATE TABLE '.$table);
+        $row2 = $row2->fetch_row();
+		$return.= "\n\n".$row2[1].";\n\n";
+		
+		for ($i = 0; $i < $num_fields; $i++) 
+		{
+			while($row = $result->fetch_row())
+			{
+				$return.= 'INSERT INTO '.$table.' VALUES(';
+				for($j=0; $j < $num_fields; $j++) 
+				{
+					$row[$j] = addslashes($row[$j]);
+					$row[$j] = str_replace("\n", '\n', $row[$j]);;
+					if (isset($row[$j])) { $return.= '"'.$row[$j].'"' ; } else { $return.= '""'; }
+					if ($j < ($num_fields-1)) { $return.= ','; }
+				}
+				$return.= ");\n";
+			}
+		}
+		$return.="\n\n\n";
+    }
     
-    $servername = $config['servername'];
-    $username = $config['username'];
-    $password = $config['password'];
-    $database = $config['database'];
-
-    exec("mysqldump --user=" . $username . " --password=" . $password . " --host=" . $servername . " " . $database . " > ./backup_database.sql");
+    // save file
+    $handle = fopen('./db-backup-1.sql','w+');
+    if ($handle === false) {
+        echo "opening failed";
+        exit;
+    }
+    if (fwrite($handle,$return)){
+        echo "backed up!";
+        fclose($handle);
+    }
 }
 
 // This will check to see if the user_name already exists in the database.
