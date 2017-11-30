@@ -17,10 +17,7 @@ inv_supplier_list = ["Lowes", "Home Depot", "Concrete Supply Co", "Gateway Suppl
 						"Pro Build Holdings", "Roofing Supply Group", "L AND W Supply", "84 Lumber",
 						"Beacon Roofing Supply", "Allied Building Products", "Yella Wood"]
 
-inv_location_name_list = ["Douthit Hills", "HWY 123 - HWY 76", "River St. Downtown", "Pleasantburg Shopping"
-						"Furman Student Center", "Epicentre", "Mint Street Parking Deck", "Lincoln Heights",
-						"Hemming Plaza", "N Georgia - Gator Bowl Blvd", "Bank of America FL", "Georgia Tech Student Center",
-						"Administrative Services Clemson", "Jaxonville City Hall"]
+inv_location_name_list = ["Hemming Plaza - 24"]
 
 product_type_list = ["nails", "steel", "flooring", "lumber", "tile", "hand tools", "power tools",
 					"trucks", "dirt", "cement", "doors", "windows", "roofing"]
@@ -44,8 +41,7 @@ while index < 400:
     supplier_name_num = randint(0, len(inv_supplier_list) - 1)
     toWrite = toWrite + "" + inv_supplier_list[supplier_name_num] + ","
 
-    location_name_num = randint(0, len(inv_location_name_list) - 1)
-    toWrite = toWrite + "" + inv_location_name_list[location_name_num] + " - " + str(randint(0, 100)) + "\n"
+    toWrite = toWrite + "" + "Hemming Plaza - 24" + "\n"
 
     csv.write(toWrite)
     index = index + 1
