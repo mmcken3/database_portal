@@ -9,12 +9,6 @@
 <head>
 <link rel="stylesheet" type="text/css" href="./styles/website.css">
 </head>
-<?php
-    // Ensure that the user is logged in, if not if will send them back to login page. 
-        if ($_SESSION["login"] == "") {
-            echo "<script>window.open('index.php', '_self')</script>";
-        }
-?>
 <body>
         <?php
             // This php pages runs the script for submitting a new user request.
