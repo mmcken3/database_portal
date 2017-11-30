@@ -34,6 +34,11 @@
                 $headersCount = count($headerList);
                 $values = "";
 
+                if ($_POST[$table_name . '_id'] == '1') {
+                    echo "No changes can be made to the main admin account.";
+                    return;
+                }
+
                 // Iterate through the headers and values and build out a list of header=value, ...
                 for ($i = 0; $i < $headersCount; $i++){
                     $fieldValue = $_POST[$headerList[$i]];
